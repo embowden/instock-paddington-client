@@ -1,0 +1,92 @@
+// MIXINS FOR MOBILE TEXT STYLES (SMALL)
+
+@mixin s-page-header {
+  font-weight: 600;
+  font-size: 28px;
+  line-height: 36px;
+}
+
+@mixin s-subheader {
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 28px;
+}
+
+@mixin s-label-link-button {
+  font-weight: 600;
+  font-size: 13px;
+  line-height: 28px;
+}
+
+@mixin s-tableheader {
+  font-weight: 600;
+  font-size: 11px;
+  line-height: 16px;
+}
+
+// MODAL
+@mixin s-body-large {
+  font-weight: 400;
+  font-size: 15px;
+  line-height: 26px;
+}
+
+// MAIN P TAG
+@mixin s-body-medium {
+  font-weight: 400;
+  font-size: 13px;
+  line-height: 30px;
+}
+
+// FOOTER
+@mixin s-body-small {
+  font-weight: 400;
+  font-size: 11px;
+  line-height: 16px;
+}
+
+// MIXINS FOR TABLET/DESKTOP TEXT STYLES (MEDIUM/LARGE)
+@mixin l-page-header {
+  font-weight: 600;
+  font-size: 32px;
+  line-height: 40px;
+}
+
+@mixin l-subheader {
+  font-weight: 600;
+  font-size: 24px;
+  line-height: 32px;
+}
+
+@mixin l-label-link-button {
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 22px;
+}
+
+@mixin l-tableheader {
+  font-weight: 600;
+  font-size: 12px;
+  line-height: 22px;
+}
+
+// MODAL
+@mixin l-body-large {
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 18px;
+}
+
+// MAIN P TAG
+@mixin l-body-medium {
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 22px;
+}
+
+// FOOTER
+@mixin l-body-small {
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 18px;
+}
