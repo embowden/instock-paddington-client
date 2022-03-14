@@ -1,7 +1,20 @@
+import { Route, Switch } from "react-router-dom";
 import "./App.scss";
+import Warehouse from "./components/Warehouses/Warehouse"
+
 
 function App() {
-  return <div className="App"></div>;
+  return (
+    <>
+      <Switch>
+        <Route
+          exact
+          path="/"
+          render={(routerProps) => <Warehouse {...routerProps} />}
+        />
+      </Switch>
+    </>
+  );
 }
 
 export default App;
