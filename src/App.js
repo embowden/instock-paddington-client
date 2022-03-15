@@ -8,10 +8,12 @@ import Inventory from "./components/Inventory/Inventory";
 import InventoryItemDetails from "./components/InventoryItemDetails/InventoryItemDetails";
 import EditInventoryItem from "./components/EditInventoryItem/EditInventoryItem";
 import AddNewInventory from "./components/AddNewInventory/AddNewInventory";
+import Header from "./components/Header/Header";
 
 function App() {
   return (
     <>
+      <Header />
       <Switch>
         <Route
           exact

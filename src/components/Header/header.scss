@@ -1,0 +1,41 @@
+@use "../../styles/partials/mixins" as *;
+@use "../../styles/partials/breakpoints" as *;
+@use "../../styles/partials/variables" as *;
+
+.header {
+  border: 3px solid blueviolet;
+  background-color: $bg-dark;
+  padding: 0 16px;
+
+  &__container {
+    border: 2px solid lime;
+  }
+
+  &__branding {
+    border: 2px solid hotpink;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  &__logo {
+    padding: 16px 0;
+  }
+
+  &__links {
+    border: 2px solid red;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  &__warehouse-link {
+    border: 0;
+    width: 100%;
+  }
+
+  &__inventory-link {
+    border: 0;
+    width: 100%;
+  }
+}
