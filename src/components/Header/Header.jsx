@@ -1,23 +1,51 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { useLocation } from "react-router-dom";
 import "./header.scss";
-import smallLogo from "../../assets/logo/instock-logo.svg";
-// import bigLogo from "../../assets/logo/instock-logo-2x.png";
+import logo from "../../assets/logo/instock-logo.svg";
 
 export default function Header() {
+  const currentPath = useLocation().pathname;
+  const warehouseClass = "header__warehouse-link";
+  const inventoryClass = "header__inventory-link";
+
+  const warehouseActive = (currClass) => {
+    if (
+      currentPath ===
+      ("/" || "/warehouses-details" || "/warehouses-edit" || "/warehouses-add")
+    ) {
+      console.log("this is a warehouse url");
+      return currClass + "--active";
+    } else {
+      return currClass;
+    }
+  };
+
+  const inventoryActive = (currClass) => {
+    if (
+      currentPath ===
+      ("/inventory" ||
+        "/inventory-details" ||
+        "/inventory-edit" ||
+        "/inventory-add")
+    ) {
+      console.log("this is an inventory url");
+      return currClass + "--active";
+    } else {
+      return currClass;
+    }
+  };
+
   return (
     <section className="header">
       <section className="header__container">
         <article className="header__branding">
-          <img src={smallLogo} alt="" className="header__logo" />
+          <img src={logo} alt="" className="header__logo" />
         </article>
-        {/* <article className="header__links">
-          <Link to={"/"}>Warehouses</Link>
-          <Link to={"/inventory"}>Inventory</Link>
-        </article> */}
         <article className="header__links">
-          <button className="header__warehouse-link">Warehouses</button>
-          <button className="header__inventory-link">Inventory</button>
+          <button className={warehouseActive(warehouseClass)}>
+            Warehouses
+          </button>
+          <button className={inventoryActive(inventoryClass)}>Inventory</button>
         </article>
       </section>
     </section>

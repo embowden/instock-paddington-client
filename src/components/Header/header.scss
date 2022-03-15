@@ -3,16 +3,27 @@
 @use "../../styles/partials/variables" as *;
 
 .header {
-  border: 3px solid blueviolet;
+  //   border: 3px solid blueviolet;
   background-color: $bg-dark;
   padding: 0 16px;
+  @include medium {
+    padding: 0 32px;
+  }
+  @include large {
+    padding: 0 120px;
+  }
 
   &__container {
-    border: 2px solid lime;
+    // border: 2px solid lime;
+    @include medium {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+    }
   }
 
   &__branding {
-    border: 2px solid hotpink;
+    // border: 2px solid hotpink;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -20,22 +31,64 @@
 
   &__logo {
     padding: 16px 0;
+    @include medium {
+      padding: 32px 0;
+    }
   }
 
   &__links {
-    border: 2px solid red;
+    // border: 2px solid red;
     display: flex;
     justify-content: center;
     align-items: center;
+    padding-bottom: 24px;
+    @include medium {
+      padding-bottom: 0;
+    }
   }
 
   &__warehouse-link {
     border: 0;
     width: 100%;
+    margin-right: 16px;
+    background-color: transparent;
+    color: $secondary-mid;
+
+    &:hover {
+      color: $primary-light;
+      text-decoration: underline;
+    }
+
+    &--active {
+      @extend .header__warehouse-link;
+      background-color: $primary-dark;
+      color: $primary-light;
+
+      &:hover {
+        text-decoration: underline;
+      }
+    }
   }
 
   &__inventory-link {
     border: 0;
     width: 100%;
+    background-color: transparent;
+    color: $secondary-mid;
+
+    &:hover {
+      color: $primary-light;
+      text-decoration: underline;
+    }
+
+    &--active {
+      @extend .header__inventory-link;
+      background-color: $primary-dark;
+      color: $primary-light;
+
+      &:hover {
+        text-decoration: underline;
+      }
+    }
   }
 }
