@@ -9,6 +9,7 @@ import InventoryItemDetails from "./components/InventoryItemDetails/InventoryIte
 import EditInventoryItem from "./components/EditInventoryItem/EditInventoryItem";
 import AddNewInventory from "./components/AddNewInventory/AddNewInventory";
 import Header from "./components/Header/Header";
+import { Footer } from "./components/Footer/Footer";
 
 function App() {
   return (
@@ -49,6 +50,7 @@ function App() {
           render={(routerProps) => <AddNewInventory {...routerProps} />}
         />
       </Switch>
+      <Footer />
     </>
   );
 }
