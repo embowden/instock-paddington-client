@@ -21,7 +21,7 @@ const Modal = ({ onClose, show, warehouseId }) => {
     event.preventDefault();
     console.log(warehouseId, "warehouseId through props");
     // deleteWarehouseAPI(warehouseId);
-    // SOMETHING TO SHUT DOWN THE WINDOW
+    onClose();
   };
 
   if (!show) {
