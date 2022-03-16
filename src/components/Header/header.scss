@@ -5,8 +5,10 @@
 .header {
   //   border: 3px solid blueviolet;
   background-color: $bg-dark;
+  height: 200px;
   padding: 0 16px;
   @include medium {
+    height: 186px;
     padding: 0 32px;
   }
   @include large {
