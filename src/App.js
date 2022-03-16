@@ -9,6 +9,7 @@ import InventoryItemDetails from "./components/InventoryItemDetails/InventoryIte
 import EditInventoryItem from "./components/EditInventoryItem/EditInventoryItem";
 import AddNewInventory from "./components/AddNewInventory/AddNewInventory";
 import Header from "./components/Header/Header";
+import { Footer } from "./components/Footer/Footer";
 
 function App() {
   return (
@@ -21,15 +22,15 @@ function App() {
           render={(routerProps) => <Warehouses {...routerProps} />}
         />
         <Route
-          path="/warehouses-details"
+          path="/warehouses/details/:id"
           render={(routerProps) => <WarehouseDetails {...routerProps} />}
         />
         <Route
-          path="/warehouses-edit"
+          path="/warehouses/edit/:id"
           render={(routerProps) => <EditWarehouse {...routerProps} />}
         />
         <Route
-          path="/warehouses-add"
+          path="/warehouses/add"
           render={(routerProps) => <AddNewWarehouse {...routerProps} />}
         />
         <Route
@@ -37,18 +38,19 @@ function App() {
           render={(routerProps) => <Inventory {...routerProps} />}
         />
         <Route
-          path="/inventory-details"
+          path="/inventory/details/:id"
           render={(routerProps) => <InventoryItemDetails {...routerProps} />}
         />
         <Route
-          path="/inventory-edit"
+          path="/inventory/edit/:id"
           render={(routerProps) => <EditInventoryItem {...routerProps} />}
         />
         <Route
-          path="/inventory-add"
+          path="/inventory/add"
           render={(routerProps) => <AddNewInventory {...routerProps} />}
         />
       </Switch>
+      <Footer />
     </>
   );
 }
