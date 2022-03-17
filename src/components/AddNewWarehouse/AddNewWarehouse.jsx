@@ -45,8 +45,8 @@ export default class AddNewWarehouse extends Component {
     if (this.isFormValid()) {
       axios
         .post(`http://localhost:8080/warehouses`, {
-          warehouseName: event.target.warehouseName.value,
-          streetAdress: event.target.streetAdress.value,
+          name: event.target.warehouseName.value,
+          address: event.target.streetAdress.value,
           city: event.target.city.value,
           country: event.target.country.value,
           contact: {

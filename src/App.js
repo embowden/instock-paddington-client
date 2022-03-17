@@ -27,7 +27,7 @@ function App() {
           render={(routerProps) => <WarehouseDetails {...routerProps} />}
         />
         <Route
-          path="/warehouses/edit/:id"
+          path="/warehouses/edit/:warehouseId"
           render={(routerProps) => <EditWarehouse {...routerProps} />}
         />
         <Route
