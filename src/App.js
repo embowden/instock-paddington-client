@@ -1,4 +1,4 @@
-import { Route, Switch } from "react-router-dom";
+import { Route, Switch, Redirect } from "react-router-dom";
 import "./App.scss";
 import Warehouses from "./components/Warehouses/Warehouses";
 import WarehouseDetails from "./components/WarehouseDetails/WarehouseDetails";
@@ -16,9 +16,10 @@ function App() {
     <>
       <Header />
       <Switch>
+        <Redirect exact from="/" to="/warehouses" />
         <Route
           exact
-          path="/"
+          path="/warehouses"
           render={(routerProps) => <Warehouses {...routerProps} />}
         />
         <Route
