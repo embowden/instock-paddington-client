@@ -1,0 +1,11 @@
+@use "../../styles/partials/mixins" as *;
+@use "../../styles/partials/breakpoints" as *;
+@use "../../styles/partials/variables" as *;
+
+.validation-message {
+  display: flex;
+  align-items: center;
+  color: red;
+  font-size: 12px;
+  gap: 5px;
+}
