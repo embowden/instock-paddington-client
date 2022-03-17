@@ -1,33 +1,48 @@
 import React, { Component } from "react";
+import "./warehouse.scss";
+import axios from "axios";
 import Modal from "../Modal/Modal";
-// import "./warehouse.scss";
+import WarehouseTable from "../Table/WarehouseTable";
 
+//Axios
+const portAPI = "http://localhost:8080/warehouses";
 export default class Warehouses extends Component {
   state = {
-    show: false,
+    warehouses: null,
   };
+
+  getAllWarehouse = () => {
+    axios
+      .get(`http://localhost:8080/warehouses`)
+      .then((response) => {
+        console.log(response);
+        this.setState({
+          warehouses: response.data,
+        });
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  };
+
+  componentDidMount() {
+    this.getAllWarehouse();
+  }
+
+  // componentDidUpdate() {
+  //   this.getAllWarehouse();
+  // }
 
   render() {
     return (
       <>
-        <button
-          onClick={() => {
-            this.setState({ show: true });
-          }}
-          className="delete-icon"
-        ></button>
-        <Modal
-          warehouseId={this.state.show}
-          onClose={() => {
-            this.setState({ show: false });
-          }}
-          show={this.state.show}
-        />
+        {this.state.warehouses && (
+          <WarehouseTable
+            getData={this.getAllWarehouse}
+            warehouses={this.state.warehouses}
+          />
+        )}
       </>
     );
   }
-}
-
-{
-  /* <div>Warehouses</div>; */
 }

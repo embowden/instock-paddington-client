@@ -3,15 +3,15 @@ import "./modal.scss";
 import closeIcon from "../../assets/icons/close-24px.svg";
 import axios from "axios";
 
-const Modal = ({ onClose, show, warehouseId }) => {
+const Modal = ({ onClose, show, warehouseID, getData }) => {
   // FUNCTION TO DELETE COMMENT FROM API
   const deleteWarehouseAPI = async (id) => {
     try {
       const deletedWarehouse = await axios.delete(
         `http://localhost:8080/warehouses/${id}`
       );
+      getData();
       console.log(deletedWarehouse);
-      // RE-RENDER ALL DATA -- axiosUpdate(currentVideoObject.id);
     } catch (err) {
       console.log(`ERROR: ${err}`);
     }
@@ -19,8 +19,9 @@ const Modal = ({ onClose, show, warehouseId }) => {
 
   const deleteWarehouseHandler = (event) => {
     event.preventDefault();
-    console.log(warehouseId, "warehouseId through props");
-    // deleteWarehouseAPI(warehouseId);
+    console.log(warehouseID, "warehouseId through props");
+    deleteWarehouseAPI(warehouseID);
+
     onClose();
   };
 
