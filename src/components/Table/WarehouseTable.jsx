@@ -2,12 +2,11 @@ import React, { Component } from "react";
 import TableHeader from "./Header/TableHeader";
 import TableLabels from "./Labels/TableLabels";
 import TableBody from "./Body/TableBody";
+import InventoryBody from "./Body/InventoryBody";
+import InventoryLabel from "./Labels/InventoryLabels";
 import "./table.scss";
-import TableSummary from "./Information/TableSummary";
+import InventoryHeader from "./Header/InventoryHeader";
 import Warehouses from "../Warehouses/Warehouses";
-
-// import searchIcon from "../../assets/icons/search-24px.svg";
-// import { search-icon } from "../;
 
 const Table = ({ warehouses, getData }) => {
   // const addedWarehouses = props.warehouseData.map((field) => {
@@ -25,7 +24,7 @@ const Table = ({ warehouses, getData }) => {
     <>
       <div className="table">
         <TableHeader />
-        {/* <TableSummary /> */}
+
         {/* <div className="table-row"> */}
         <TableLabels />
         {warehouses.map((warehouseObject) => {
@@ -37,7 +36,6 @@ const Table = ({ warehouses, getData }) => {
             />
           );
         })}
-        ;{/* </div> */}
       </div>
     </>
   );

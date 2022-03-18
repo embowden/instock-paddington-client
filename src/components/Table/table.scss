@@ -36,6 +36,10 @@
   justify-content: center;
 }
 
+.table-header__middle {
+  width: 35%;
+}
+
 .blue-button {
   background-color: #2e66e5;
   color: white;
@@ -47,10 +51,17 @@
   padding-right: 1rem;
 }
 
+.backArrow {
+  margin-right: 12px;
+}
+
 #search-icon {
   padding-right: 1rem;
 }
 
+#title {
+  color: #5c667e;
+}
 .search-button {
   background-color: white;
   border: 1px solid black;
@@ -75,6 +86,33 @@
   }
 }
 
+//Columns
+
+.table-row__column--1 {
+  display: flex;
+  width: 100%;
+  flex-direction: row;
+  align-items: center;
+  align-content: center;
+  justify-content: space-around;
+}
+.table-row__column--2 {
+  display: flex;
+  width: 100%;
+  flex-direction: row;
+  align-items: center;
+  align-content: center;
+  justify-content: space-around;
+}
+.table-row__column--3 {
+  display: flex;
+  padding-right: 43px;
+  flex-direction: row;
+  align-items: center;
+  align-content: center;
+  justify-content: space-around;
+}
+
 .table-row__column--indiviual {
   border-bottom: 1px green solid;
 }
@@ -94,6 +132,13 @@
 }
 
 ////Columns
+.row-1,
+.row-2,
+.row-3,
+.row-5 {
+  display: flex;
+  align-items: center;
+}
 
 .row-1 {
   cursor: pointer;
@@ -104,18 +149,31 @@
   color: black;
 }
 
+.row-1,
 .row-2,
-.row-4 {
-  width: 25%;
+.row-3,
+.row-4,
+.row-5 {
+  width: 100%;
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
 }
 
-.row-1,
-.row-3,
-.row-5 {
-  width: 20%;
-  display: flex;
-  align-items: center;
+.row-1 {
+  padding-left: 40px;
 }
+
+.row-5 {
+  flex-direction: row;
+  width: 80%;
+}
+
+.label {
+  flex-direction: row;
+}
+
+///////////////////////////////////////
 @include breakpoints.small {
   .table {
     font-size: 11px;
@@ -184,13 +242,42 @@
 
   .table-row__column--indiviual {
     height: 196px;
+    flex-direction: column;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
   }
 
-  .row-1 {
-    padding-left: 40px;
+  .table-row__column--1,
+  .table-row__column--2,
+  .table-row__column--3 {
+    width: 100%;
+    margin-bottom: 1rem;
+  }
+
+  .table-row__column--1,
+  .table-row__column--2 {
+    flex-direction: column;
+    align-items: flex-start;
+    padding-left: 24px;
+  }
+  .row-1,
+  .row-3,
+  .row-5,
+  .row-2,
+  .row-4 {
+    width: 100%;
+    padding-left: 0;
+  }
+  .row-5 {
+    display: flex;
+    padding-left: 28px;
+    padding-right: 28px;
+    justify-content: space-between;
+    flex-direction: row;
   }
 }
 
+/////////////////////////////////////////////
 @include breakpoints.medium {
   .search-button {
     width: 185px;
@@ -221,12 +308,8 @@
   .table-row__column--indiviual {
     height: 76px;
   }
-
-  .row-1,
-  .row-2 {
-    padding-left: 40px;
-  }
 }
+
 @include breakpoints.large {
   .search-button {
     width: 274px;
@@ -253,8 +336,8 @@
     height: 76px;
   }
 
-  .row-1,
-  .row-2 {
-    padding-left: 40px;
-  }
+  // .row-1,
+  // .row-2 {
+  //   padding-left: 40px;
+  // }
 }
