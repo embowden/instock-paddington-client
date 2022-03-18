@@ -56,12 +56,13 @@ export class TableMain extends Component {
                 }}
               />
               <Modal
-                warehouseId={this.state.show}
                 onClose={() => {
                   this.setState({ show: false });
                 }}
+                type="inventory"
                 show={this.state.show}
-                warehouseID={this.state.currentID}
+                objectID={this.state.currentID}
+                objectName={this.props.warehouses.name}
                 getData={this.props.getData}
               />
             </div>

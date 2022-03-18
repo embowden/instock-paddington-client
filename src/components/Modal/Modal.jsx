@@ -3,8 +3,8 @@ import "./modal.scss";
 import closeIcon from "../../assets/icons/close-24px.svg";
 import axios from "axios";
 
-const Modal = ({ onClose, show, warehouseID, getData }) => {
-  // FUNCTION TO DELETE COMMENT FROM API
+const Modal = ({ onClose, show, objectID, getData, objectName, type }) => {
+  // FUNCTION TO DELETE WAREHOUSE FROM API
   const deleteWarehouseAPI = async (id) => {
     try {
       const deletedWarehouse = await axios.delete(
@@ -17,11 +17,27 @@ const Modal = ({ onClose, show, warehouseID, getData }) => {
     }
   };
 
+  // FUNCTION TO DELETE INVENTORY FROM API
+  const deleteInventoryAPI = async (id) => {
+    try {
+      const deletedInventory = await axios.delete(
+        `http://localhost:8080//inventory/${id}`
+      );
+      getData();
+      console.log(deletedInventory);
+    } catch (err) {
+      console.log(`ERROR: ${err}`);
+    }
+  };
+
   const deleteWarehouseHandler = (event) => {
     event.preventDefault();
-    console.log(warehouseID, "warehouseId through props");
-    deleteWarehouseAPI(warehouseID);
-
+    console.log(objectID, "objectID through props");
+    if (type === "warehouse") {
+      deleteWarehouseAPI(objectID);
+    } else if (type === "inventory") {
+      deleteInventoryAPI(objectID);
+    }
     onClose();
   };
 
@@ -43,12 +59,23 @@ const Modal = ({ onClose, show, warehouseID, getData }) => {
           />
         </div>
         <div className="modal__header">
-          <h1 className="modal__title">Delete THIS THING</h1>
+          {type === "warehouse" ? (
+            <h1 className="modal__title">{`Delete ${objectName} ${type}?`}</h1>
+          ) : null}
+          {type === "inventory" ? (
+            <h1 className="modal__title">{`Delete ${objectName} ${type} item?`}</h1>
+          ) : null}
         </div>
-        <article className="modal__content">
-          Please confirm that you’d like to delete the THIS from the list of
-          THING + S. You won’t be able to undo this action.
-        </article>
+        {type === "warehouse" ? (
+          <article className="modal__content">
+            {`Please confirm that you'd like to delete the ${objectName} from the list of ${type}s. You won't be able to undo this action.`}
+          </article>
+        ) : null}
+        {type === "inventory" ? (
+          <article className="modal__content">
+            {`Please confirm that you'd like to delete ${objectName} from the ${type} list. You won't be able to undo this action.`}
+          </article>
+        ) : null}
         <div className="modal__footer">
           <button onClick={onClose} className="modal__cancel">
             Cancel
