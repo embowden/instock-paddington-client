@@ -4,7 +4,7 @@ import axios from "axios";
 import arrow from "../../assets/icons/arrow-back-24px.svg";
 import ValidationMessage from "../../components/ValidationMessage/ValidationMessage";
 
-export default class AddNewWarehouse extends Component {
+export default class EditWarehouse extends Component {
   state = {
     warehouseName: null,
     streetAdress: null,
