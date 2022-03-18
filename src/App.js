@@ -35,6 +35,7 @@ function App() {
           render={(routerProps) => <AddNewWarehouse {...routerProps} />}
         />
         <Route
+          exact
           path="/inventory"
           render={(routerProps) => <Inventory {...routerProps} />}
         />

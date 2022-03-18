@@ -1,0 +1,130 @@
+@use "../../styles/partials/mixins" as *;
+@use "../../styles/partials/breakpoints" as *;
+@use "../../styles/partials/variables" as *;
+
+.add-inventory {
+  background-color: white;
+  padding: 0 24px 0 24px;
+
+  &__header {
+    line-height: 2;
+    border-bottom: 1px solid $secondary-mid;
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+  }
+
+  &__form {
+    display: flex;
+    flex-direction: column;
+    @include medium {
+      gap: 56px;
+    }
+  }
+
+  &__form-elements {
+    @include medium {
+      display: flex;
+      justify-content: space-between;
+    }
+  }
+
+  &__back {
+    padding-right: 16px;
+  }
+
+  &__input {
+    margin-bottom: 1rem;
+    border: 1px solid $secondary-mid;
+  }
+
+  select {
+    border-radius: 20px;
+    padding: 0 16px;
+    height: 36px;
+    @include medium {
+      height: 38px;
+    }
+  }
+
+  &__quantity {
+    width: 20%;
+  }
+
+  textarea {
+    font-family: titillium web;
+    border-radius: 20px;
+    padding: 16px 16px;
+    height: 120px;
+  }
+
+  &__input--missing {
+    margin-bottom: 1rem;
+    border: 1px solid red;
+  }
+
+  &__section-header {
+    padding: 2rem 0 2rem 0;
+    border-top: 1px solid $secondary-mid;
+    @include medium {
+      border-top: none;
+    }
+  }
+
+  &__item-info,
+  &__item-availablity {
+    display: flex;
+    flex-direction: column;
+
+    @include medium {
+      width: 50%;
+      padding: 0 32px 0 32px;
+    }
+  }
+
+  &__in-stock {
+    border: none;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  &__item-info {
+    @include medium {
+      border-right: 1px solid $secondary-mid;
+    }
+  }
+
+  &__buttons {
+    display: flex;
+    align-items: center;
+    padding: 16px 0 16px 0;
+    @include medium {
+      justify-content: flex-end;
+    }
+  }
+
+  &__cancel,
+  &__add {
+    width: 100%;
+    word-wrap: keep-all;
+    padding: 0;
+    @include medium {
+      width: auto;
+      padding: 8px 16px 8px 16px;
+    }
+  }
+
+  &__cancel {
+    margin-right: 16px;
+    border: 1px solid $secondary-mid;
+    background-color: white;
+    color: $secondary-dark;
+  }
+
+  &__add {
+    color: white;
+    background-color: $primary-mid;
+    border: 0;
+  }
+}
