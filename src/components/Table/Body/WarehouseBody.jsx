@@ -32,7 +32,7 @@ export class WarehouseBody extends Component {
                 <div className="row-2 mobile">
                   <div id="mobile-only">Warehouse Address</div>
                   {this.props.warehouses.address}, {this.props.warehouses.city}{" "}
-                  ,{this.props.warehouses.country}
+                  , {this.props.warehouses.country}
                   <br></br>
                 </div>
               </div>
