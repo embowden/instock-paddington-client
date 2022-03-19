@@ -135,35 +135,35 @@ export default class EditInventoryItem extends Component {
 
   render() {
     return (
-      <div className="add-inventory">
-        <h1 className="add-inventory__header">
-          <span className="add-inventory__back">
+      <div className="edit-inventory">
+        <h1 className="edit-inventory__header">
+          <span className="edit-inventory__back">
             <img src={arrow} alt="" />
           </span>
           Edit Inventory Item
         </h1>
         <form
-          name="addInventory"
+          name="editInventory"
           onSubmit={this.handleSubmit}
-          className="add-inventory__form"
+          className="edit-inventory__form"
         >
-          <div className="add-inventory__form-elements">
-            <div className="add-inventory__item-info">
-              <h2 className="add-inventory__section-header">Item Details</h2>
+          <div className="edit-inventory__form-elements">
+            <div className="edit-inventory__item-info">
+              <h2 className="edit-inventory__section-header">Item Details</h2>
               <label>Item Name</label>
               <input
                 onChange={this.handleChange}
                 className={`${
                   !this.state.itemName && !this.state.formValid
-                    ? "add-inventory__input--missing"
-                    : "add-inventory__input"
+                    ? "edit-inventory__input--missing"
+                    : "edit-inventory__input"
                 }`}
                 placeholder="Item Name"
                 name="itemName"
                 value={`${this.state.itemName}`}
               />
               {!this.state.itemName && !this.state.formValid && (
-                <ValidationMessage />
+                <ValidationMessage message={"Item Name Required"} />
               )}
 
               <label>Description</label>
@@ -171,15 +171,15 @@ export default class EditInventoryItem extends Component {
                 onChange={this.handleChange}
                 className={`${
                   !this.state.description && !this.state.formValid
-                    ? "add-inventory__input--missing"
-                    : "add-inventory__input"
+                    ? "edit-inventory__input--missing"
+                    : "edit-inventory__input"
                 }`}
                 placeholder="Please enter a brief item description"
                 name="description"
                 value={`${this.state.description}`}
               />
               {!this.state.description && !this.state.formValid && (
-                <ValidationMessage />
+                <ValidationMessage message={"Description Required"} />
               )}
 
               <label>Category</label>
@@ -187,8 +187,8 @@ export default class EditInventoryItem extends Component {
                 onChange={this.handleChange}
                 className={`${
                   !this.state.category && !this.state.formValid
-                    ? "add-inventory__input--missing"
-                    : "add-inventory__input"
+                    ? "edit-inventory__input--missing"
+                    : "edit-inventory__input"
                 }`}
                 placeholder="Please select"
                 name="category"
@@ -201,17 +201,17 @@ export default class EditInventoryItem extends Component {
                 <option value="Electronics">Electronics</option>
               </select>
               {!this.state.category && !this.state.formValid && (
-                <ValidationMessage />
+                <ValidationMessage message={"Category Required"} />
               )}
             </div>
 
-            <div className="add-inventory__item-availablity">
-              <h2 className="add-inventory__section-header">
+            <div className="edit-inventory__item-availablity">
+              <h2 className="edit-inventory__section-header">
                 Item Availablity
               </h2>
 
               <label>Status</label>
-              <fieldset className="add-inventory__in-stock" id="status">
+              <fieldset className="edit-inventory__in-stock" id="status">
                 <input
                   onChange={this.handleChange}
                   type="radio"
@@ -229,7 +229,7 @@ export default class EditInventoryItem extends Component {
                 <label>Out of Stock</label>
               </fieldset>
               {!this.state.warehouse && !this.state.formValid && (
-                <ValidationMessage />
+                <ValidationMessage message={"Status Required"} />
               )}
               {this.state.status === "true" && (
                 <>
@@ -238,8 +238,8 @@ export default class EditInventoryItem extends Component {
                     onChange={this.handleChange}
                     className={`${
                       !this.state.quantity && !this.state.formValid
-                        ? "add-inventory__quantity add-inventory__input--missing"
-                        : "add-inventory__quantity add-inventory__input"
+                        ? "edit-inventory__quantity edit-inventory__input--missing"
+                        : "edit-inventory__quantity edit-inventory__input"
                     }`}
                     name="quantity"
                     type="number"
@@ -249,14 +249,16 @@ export default class EditInventoryItem extends Component {
               )}
               {!this.state.quantity &&
                 this.state.status === "true" &&
-                !this.state.formValid && <ValidationMessage />}
+                !this.state.formValid && (
+                  <ValidationMessage message={"Quantity Required"} />
+                )}
               <label>Warehouse</label>
               <select
                 onChange={this.handleChange}
                 className={`${
                   !this.state.category && !this.state.formValid
-                    ? "add-inventory__input--missing"
-                    : "add-inventory__input"
+                    ? "edit-inventory__input--missing"
+                    : "edit-inventory__input"
                 }`}
                 name="warehouse"
               >
@@ -272,16 +274,16 @@ export default class EditInventoryItem extends Component {
                   })}
               </select>
               {!this.state.category && !this.state.formValid && (
-                <ValidationMessage />
+                <ValidationMessage message={"Warehouse Required"} />
               )}
             </div>
           </div>
 
-          <div className="add-warehouse__buttons">
-            <button type="reset" className="add-warehouse__cancel">
+          <div className="edit-inventory__buttons">
+            <button type="reset" className="edit-inventory__cancel">
               Cancel
             </button>
-            <button type="submit" className="add-warehouse__add">
+            <button type="submit" className="edit-inventory__add">
               Save
             </button>
           </div>
