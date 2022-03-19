@@ -4,7 +4,7 @@ import WarehouseDetailsLabels from "./Labels/WarehouseDetailsLabels";
 import WarehouseDetailsHeader from "./Header/WarehouseDetailsHeader";
 import "./table.scss";
 
-const WarehouseDetailsTable = ({ inventories, getData }) => {
+const WarehouseDetailsTable = ({ inventories, warehouses, getData }) => {
   inventories.map((inventory) => {
     return <WarehouseDetailsHeader inventories={inventories} />;
   });
@@ -12,7 +12,7 @@ const WarehouseDetailsTable = ({ inventories, getData }) => {
   return (
     <>
       <div className="table">
-        <WarehouseDetailsHeader />
+        <WarehouseDetailsHeader warehouses={warehouses}/>
         <WarehouseDetailsLabels />
         {inventories.map((inventoryObject) => {
           return (
@@ -26,7 +26,6 @@ const WarehouseDetailsTable = ({ inventories, getData }) => {
       </div>
     </>
   );
-  //   });
 };
 
 export default WarehouseDetailsTable;

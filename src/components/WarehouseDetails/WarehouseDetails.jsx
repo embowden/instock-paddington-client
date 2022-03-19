@@ -4,7 +4,7 @@ import "./warehouse-details.scss";
 import axios from "axios";
 import WarehouseDetailsTable from "../Table/WarehouseDetailsTable";
 //Axios
-const portAPI = "http://localhost:8080/warehouses";
+// const portAPI = "http://localhost:8080/warehouses";
 export default class WarehouseDetails extends Component {
   state = {
     warehouses: null,
@@ -27,7 +27,7 @@ export default class WarehouseDetails extends Component {
 
   getAllInventories = () => {
     axios
-      .get(`http://localhost:8080/warehouses`)
+      .get(`http://localhost:8080/inventory`)
       .then((response) => {
         console.log(response);
         this.setState({
@@ -55,6 +55,7 @@ export default class WarehouseDetails extends Component {
           <WarehouseDetailsTable
             getData={this.getAllInventories}
             inventories={this.state.inventories}
+            warehouses={this.state.warehouses}
           />
         )}
       </>

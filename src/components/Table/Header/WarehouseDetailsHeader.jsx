@@ -27,7 +27,7 @@ export class WarehouseDetailsHeader extends Component {
             <img src={editIcon} alt="Edit-Icon" /> Edit{" "}
           </div>
         </div>
-        <WarehouseDetailsSummary />
+        <WarehouseDetailsSummary warehouses={this.props.warehouses} />
       </>
     );
   }
