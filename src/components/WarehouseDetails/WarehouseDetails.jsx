@@ -56,6 +56,7 @@ export default class WarehouseDetails extends Component {
             getData={this.getAllInventories}
             inventories={this.state.inventories}
             warehouses={this.state.warehouses}
+            match={this.props.match}
           />
         )}
       </>
