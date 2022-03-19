@@ -2,10 +2,10 @@ import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import "../table.scss";
 import "./inventoryheader.scss";
-import InventorySummary from "../Summary/InventorySummary";
-import editIcon from "../../../assets/icons/edit-24px.svg";
+// import InventorySummary from "../Summary/InventorySummary";
+// import editIcon from "../../../assets/icons/edit-24px.svg";
 import searchIcon from "../../../assets/icons/search-24px.svg";
-import backArrow from "../../../assets/icons/arrow-back-24px.svg";
+// import backArrow from "../../../assets/icons/arrow-back-24px.svg";
 
 export class InventoryHeader extends Component {
   // inventoryData = this.props.inventories;
@@ -28,8 +28,9 @@ export class InventoryHeader extends Component {
             </div>
           </div>
           <div className="table-header__right">
-            {/* <Link to={`/warehouses/add/`}> */}
-            <div className="blue-button">+ Add New Item </div> {/* </Link> */}
+            <Link to="/inventory/add">
+              <div className="blue-button">+ Add New Item </div>
+            </Link>
           </div>
         </div>
       </>

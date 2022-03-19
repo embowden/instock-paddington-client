@@ -14,8 +14,6 @@ export class InventoryBody extends Component {
   };
 
   render() {
-    // console.log(this.state.currentID);
-
     return (
       <>
         <div className="table-row__column">
@@ -24,41 +22,41 @@ export class InventoryBody extends Component {
               <div className="table-row__column--1">
                 <div className="row-1 mobile">
                   <div id="mobile-only">INVENTORY ITEM</div>
-                  <Link to={`/inventories/details/${this.state.currentID}`}>
-                    {this.props.inventories.name}
+                  <Link to={`/inventory/details/${this.state.currentID}`}>
+                    {this.props.inventories.itemName}
                     <Arrow />
                   </Link>
                 </div>
                 <div className="row-2 mobile">
                   <div id="mobile-only">CATEGORY</div>
-                  {this.props.inventories.address},{" "}
-                  {this.props.inventories.city} ,
-                  {this.props.inventories.country}
+                  {this.props.inventories.category}
                   <br></br>
                 </div>
               </div>
               <div className="table-row__column--2">
                 <div className="row-3 mobile">
                   <div id="mobile-only">STATUS</div>
-                  <div className="instock">IN STOCK</div>
-                  <div className="no-stock">OUT OF STOCK</div>
+                  {this.props.inventories.status === "In Stock" ? (
+                    <div className="instock">IN STOCK</div>
+                  ) : (
+                    <div className="no-stock">OUT OF STOCK</div>
+                  )}
                 </div>
                 <div className="row-4 mobile">
                   <div id="mobile-only">QTY</div>
-                  <p> {this.props.inventories.contact.phone}</p>
-                  <p> {this.props.inventories.contact.email}</p>
+                  <p> {this.props.inventories.quantity}</p>
                 </div>
                 <div className="row-4 mobile">
                   <div id="mobile-only">WAREHOUSE</div>
-                  <p> {this.props.inventories.name}</p>
+                  <p> {this.props.inventories.warehouseName}</p>
                 </div>
               </div>
             </div>
             <div className="table-row__column--3">
               <div className="row-5 mobile">
-                <Link to={`/inventories/edit/${this.state.currentID}`}>
+                <Link to={`/inventory/edit/${this.state.currentID}`}>
                   <img src={editIcon} alt="Edit-Icon" />
-                </Link>{" "}
+                </Link>
                 <img
                   src={deleteIcon}
                   alt="Delete-Icon"
@@ -73,7 +71,7 @@ export class InventoryBody extends Component {
                   type="inventory"
                   show={this.state.show}
                   objectID={this.state.currentID}
-                  objectName={this.props.inventories.name}
+                  objectName={this.props.inventories.itemName}
                   getData={this.props.getData}
                 />
               </div>
