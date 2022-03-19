@@ -66,10 +66,10 @@ export class WarehouseBody extends Component {
                   objectID={this.state.currentID}
                   objectName={this.props.warehouses.name}
                   getData={this.props.getData}
-                />{" "}
-                <Link to={`/inventories/edit/${this.state.currentID}`}>
+                />
+                <Link to={`/warehouses/edit/${this.state.currentID}`}>
                   <img src={editIcon} alt="Edit-Icon" />
-                </Link>{" "}
+                </Link>
               </div>
             </div>
           </div>
