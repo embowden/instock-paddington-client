@@ -35,12 +35,14 @@ a:active {
   color: white;
   display: flex;
   justify-content: space-evenly;
+  align-items: center;
   margin-right: 40px;
   padding-right: 0.5rem;
 }
 
 .edit-icon {
-  filter: grayscale(100%);
+  filter: brightness(100);
+  // filter: grayscale(100%);
   // filter: contrast(100%);
 }
 
@@ -200,6 +202,10 @@ a:active {
 
 ///////////////////////////////////////
 @include breakpoints.small {
+  #warehouse-header {
+    flex-direction: column;
+  }
+
   .table {
     font-size: 11px;
   }
@@ -224,8 +230,8 @@ a:active {
 
   .table-header__right {
     justify-content: center;
-    padding-left: 24px;
-    padding-right: 24px;
+    // padding-left: 24px;
+    // padding-right: 24px;
   }
 
   .search-button,
@@ -241,6 +247,19 @@ a:active {
     border-radius: 50px;
     font-size: 13px;
   }
+
+  .edit-button {
+    border-radius: 100px;
+    width: 36px;
+    height: 36px;
+    background-color: #2e66e5;
+    color: white;
+    display: flex;
+    justify-content: space-evenly;
+    padding: 0;
+    margin-left: 3rem;
+  }
+
   #non-mobile {
     display: none;
   }

@@ -23,7 +23,8 @@ export class SingleInventoryHeader extends Component {
           <div className="table-header__right">
             {/* <Link to={`/warehouses/add/`}> */}
             <div className="edit-button">
-              <img src={editIcon} className="edit-icon" alt="Edit-Icon" /> Edit{" "}
+              <img src={editIcon} className="edit-icon" alt="Edit-Icon" />{" "}
+              <p id="non-mobile">Edit</p>{" "}
             </div>{" "}
             {/* </Link> */}
           </div>

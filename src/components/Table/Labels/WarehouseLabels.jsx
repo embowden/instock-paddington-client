@@ -3,7 +3,7 @@ import "../table.scss";
 
 import sortIcon from "../../../assets/icons/sort-24px.svg";
 
-export class InventoryLabels extends Component {
+export class WarehouseLabels extends Component {
   render() {
     return (
       <>
@@ -11,25 +11,21 @@ export class InventoryLabels extends Component {
           <div className="table-row__header" id="non-mobile">
             <div className="table-row__column--1">
               <div className="row-1 label" id="l-page-header">
-                INVENTORY ITEM:
+                WAREHOUSE:{" "}
                 <img src={sortIcon} alt="Sort Icon" className="icon "></img>
               </div>
               <div className="row-2 label">
-                CATEGORY:
+                ADDRESS:{" "}
                 <img src={sortIcon} alt="Sort Icon" className="icon "></img>
               </div>
             </div>
             <div className="table-row__column--2">
               <div className="row-3 label">
-                STATUS:
+                NAME:
                 <img src={sortIcon} alt="Sort Icon" className="icon "></img>
               </div>
               <div className="row-4 label">
-                QTY:{" "}
-                <img src={sortIcon} alt="Sort Icon" className="icon "></img>
-              </div>
-              <div className="row-4 label">
-                WAREHOUSE:
+                CONTACT INFO:{" "}
                 <img src={sortIcon} alt="Sort Icon" className="icon "></img>
               </div>
             </div>
@@ -43,4 +39,4 @@ export class InventoryLabels extends Component {
   }
 }
 
-export default InventoryLabels;
+export default WarehouseLabels;
