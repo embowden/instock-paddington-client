@@ -21,7 +21,7 @@ const Modal = ({ onClose, show, objectID, getData, objectName, type }) => {
   const deleteInventoryAPI = async (id) => {
     try {
       const deletedInventory = await axios.delete(
-        `http://localhost:8080//inventory/${id}`
+        `http://localhost:8080/inventory/${id}`
       );
       getData();
       console.log(deletedInventory);
@@ -30,7 +30,7 @@ const Modal = ({ onClose, show, objectID, getData, objectName, type }) => {
     }
   };
 
-  const deleteWarehouseHandler = (event) => {
+  const deleteHandler = (event) => {
     event.preventDefault();
     console.log(objectID, "objectID through props");
     if (type === "warehouse") {
@@ -80,7 +80,7 @@ const Modal = ({ onClose, show, objectID, getData, objectName, type }) => {
           <button onClick={onClose} className="modal__cancel">
             Cancel
           </button>
-          <button onClick={deleteWarehouseHandler} className="modal__delete">
+          <button onClick={deleteHandler} className="modal__delete">
             Delete
           </button>
         </div>

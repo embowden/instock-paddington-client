@@ -1,13 +1,13 @@
-import React, { Component } from "react";
+// import React, { Component } from "react";
 import InventoryHeader from "./Header/InventoryHeader";
 import InventoryLabels from "./Labels/InventoryLabels";
 import InventoryBody from "./Body/InventoryBody";
 import "./table.scss";
 
 const InventoryTable = ({ inventories, getData }) => {
-  inventories.map((inventory) => {
-    return <InventoryHeader inventories={inventories} />;
-  });
+  // inventories.map((inventory) => {
+  //   return <InventoryHeader inventories={inventories} />;
+  // });
 
   return (
     <>
@@ -26,7 +26,6 @@ const InventoryTable = ({ inventories, getData }) => {
       </div>
     </>
   );
-  //   });
 };
 
 export default InventoryTable;
