@@ -9,23 +9,24 @@ export default class EditInventoryItem extends Component {
     itemName: null,
     description: null,
     category: null,
-    status: null,
-    quantity: null,
+    status: true,
+    quantity: 0,
     warehouse: null,
     formValid: true,
     warehouseData: null,
   };
 
-  componentDidMount() {
+  getInventoryItem = () => {
     axios
       .get(`http://localhost:8080/inventory/${this.props.match.params.id}`)
       .then((response) => {
         console.log(response);
+        let boolStatus = this.getItemStatus(response);
         this.setState({
           itemName: response.data.itemName,
           description: response.data.description,
           category: response.data.category,
-          status: response.data.status,
+          status: boolStatus,
           quantity: response.data.quantity,
           warehouse: response.data.warehouseName,
         });
@@ -33,7 +34,13 @@ export default class EditInventoryItem extends Component {
       .catch((error) => {
         console.log(error);
       });
+  };
 
+  getItemStatus = (response) => {
+    if (response.data.status === "In Stock") return true;
+  };
+
+  getWarehouseList = () => {
     axios
       .get(`http://localhost:8080/warehouses`)
       .then((response) => {
@@ -45,31 +52,9 @@ export default class EditInventoryItem extends Component {
       .catch((error) => {
         console.log(error);
       });
-  }
-
-  handleChange = (event) => {
-    this.setState({
-      [event.target.name]: event.target.value,
-    });
   };
 
-  isFormValid = () => {
-    if (
-      !this.state.itemName ||
-      !this.state.description ||
-      !this.state.category ||
-      !this.state.status ||
-      !this.state.quantity ||
-      !this.state.warehouse
-    ) {
-      return false;
-    }
-
-    return true;
-  };
-
-  handleSubmit = (event) => {
-    event.preventDefault();
+  updateItem = (event) => {
     if (this.isFormValid()) {
       let nameAndId = event.target.warehouse.value.split(" "); //*Takes value target from warehouse drop down
       let warehouseID = String(nameAndId.slice(-1)[0]); //*grabs last item in array, always ID
@@ -77,7 +62,6 @@ export default class EditInventoryItem extends Component {
         (element) => element !== warehouseID
       ); //* filters out ID so only warehouse name elements remain
       let warehouseName = warehouseNameArr.join(" "); //*adds remaining elements together in a string
-
       axios
         .post(
           `http://localhost:8080/inventory/${this.props.match.params.id}/${warehouseID}`,
@@ -93,6 +77,7 @@ export default class EditInventoryItem extends Component {
         )
         .then(function (response) {
           event.target.reset();
+          this.getInventoryItem();
           alert(`Item updated successfully`);
           console.log(response);
         });
@@ -101,6 +86,45 @@ export default class EditInventoryItem extends Component {
         formValid: false,
       });
     }
+  };
+
+  isFormValid = () => {
+    if (
+      this.state.itemName === "" ||
+      this.state.description === "" ||
+      this.state.category === "" ||
+      this.state.status === "" ||
+      this.state.warehouse === "" ||
+      (this.state.status === "In Stock" && this.state.quantity <= 0) ||
+      (this.state.status === "Out Of Stock" && this.state.quantity > 0)
+    ) {
+      return false;
+    }
+
+    return true;
+  };
+
+  componentDidMount() {
+    this.getInventoryItem();
+    this.getWarehouseList();
+  }
+
+  handleChange = (event) => {
+    console.log(event.target.name);
+    console.log(event.target.value);
+    this.setState({
+      [event.target.name]: event.target.value,
+    });
+    if (this.state.status === "false") {
+      this.setState({
+        quantity: 0,
+      });
+    }
+  };
+
+  handleSubmit = (event) => {
+    event.preventDefault();
+    this.updateItem(event);
   };
 
   render() {
@@ -179,39 +203,29 @@ export default class EditInventoryItem extends Component {
               <h2 className="add-inventory__section-header">
                 Item Availablity
               </h2>
+
               <label>Status</label>
               <fieldset className="add-inventory__in-stock" id="status">
                 <input
                   onChange={this.handleChange}
                   type="radio"
-                  value="In Stock"
+                  value={true}
                   name="status"
-                  defaultChecked={
-                    this.state.status && this.state.status === "In Stock"
-                      ? "true"
-                      : "false"
-                  }
                 />
+
                 <label>In Stock</label>
                 <input
                   onChange={this.handleChange}
                   type="radio"
-                  value="Out Of Stock"
+                  value={false}
                   name="status"
-                  defaultChecked={
-                    this.state.status && this.state.status === "Out Of Stock"
-                      ? "true"
-                      : "false"
-                  }
                 />
                 <label>Out of Stock</label>
               </fieldset>
-
               {!this.state.warehouse && !this.state.formValid && (
                 <ValidationMessage />
               )}
-
-              {this.state.status === "In Stock" && (
+              {this.state.status === "true" && (
                 <>
                   <label>Quantity</label>
                   <input
@@ -227,7 +241,6 @@ export default class EditInventoryItem extends Component {
                   />
                 </>
               )}
-
               {!this.state.quantity && !this.state.formValid && (
                 <ValidationMessage />
               )}
@@ -241,14 +254,13 @@ export default class EditInventoryItem extends Component {
                 }`}
                 name="warehouse"
               >
-                (//*This maps through videos and returns names for each, then
-                asigns to form option)
                 {this.state.warehouseData &&
                   this.state.warehouseData.map((warehouse) => {
                     return (
                       <option
                         key={warehouse.id}
                         value={`${warehouse.name} ${warehouse.id}`}
+                        selected={warehouse.name === this.state.warehouse}
                       >{`${warehouse.name}`}</option>
                     );
                   })}
