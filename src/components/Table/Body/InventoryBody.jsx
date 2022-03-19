@@ -70,10 +70,10 @@ export class InventoryBody extends Component {
                   objectID={this.state.currentID}
                   objectName={this.props.inventories.itemName}
                   getData={this.props.getData}
-                />{" "}
-                <Link to={`/inventories/edit/${this.state.currentID}`}>
+                />
+                <Link to={`/inventory/edit/${this.state.currentID}`}>
                   <img src={editIcon} alt="Edit-Icon" />
-                </Link>{" "}
+                </Link>
               </div>
             </div>
           </div>
