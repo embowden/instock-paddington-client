@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { Link } from "react-router-dom";
 import "./add-new-inventory.scss";
 import axios from "axios";
 import arrow from "../../assets/icons/arrow-back-24px.svg";
@@ -87,9 +88,9 @@ export default class AddNewInventory extends Component {
     return (
       <div className="add-inventory">
         <h1 className="add-inventory__header">
-          <span className="add-inventory__back">
+          <Link to={"/inventory"} className="add-warehouse__back">
             <img src={arrow} alt="" />
-          </span>
+          </Link>
           Add New Inventory Item
         </h1>
         <form
