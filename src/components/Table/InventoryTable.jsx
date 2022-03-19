@@ -1,20 +1,10 @@
 import React, { Component } from "react";
-import TableBody from "./Body/TableBody";
-import InventoryBody from "./Body/InventoryBody";
-import InventoryLabels from "./Labels/InventoryLabels";
-import SingleInventory from "./Header/SingleInventoryHeader";
-import "./table.scss";
 import InventoryHeader from "./Header/InventoryHeader";
-import Warehouses from "../Warehouses/Warehouses";
+import InventoryLabels from "./Labels/InventoryLabels";
+import InventoryBody from "./Body/InventoryBody";
+import "./table.scss";
 
-const Table = ({ inventories, getData }) => {
-  // const addedinventories = props.warehouseData.map((field) => {
-  //   render() {
-
-  //       <div key={field.timestamp} className="comments">
-
-  //   const addedinventories = props.warehouseData.map((warehouse) => {
-
+const InventoryTable = ({ inventories, getData }) => {
   inventories.map((inventory) => {
     return <InventoryHeader inventories={inventories} />;
   });
@@ -22,7 +12,6 @@ const Table = ({ inventories, getData }) => {
   return (
     <>
       <div className="table">
-        #2: Warehouse Details
         <InventoryHeader />
         <InventoryLabels />
         {inventories.map((inventoryObject) => {
@@ -34,12 +23,10 @@ const Table = ({ inventories, getData }) => {
             />
           );
         })}
-        #5: Inventory Item Details
-        <SingleInventory />
       </div>
     </>
   );
   //   });
 };
 
-export default Table;
+export default InventoryTable;

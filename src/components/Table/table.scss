@@ -5,6 +5,14 @@
 .table {
   border: 1px solid aquamarine;
   font-size: 14px; ////////revisit!!!
+  list-style: none;
+}
+
+a,
+a:visited,
+a:hover,
+a:active {
+  color: inherit;
 }
 
 .table-header {

@@ -4,8 +4,9 @@ import "../table.scss";
 import "./inventoryheader.scss";
 import InventorySummary from "../Summary/InventorySummary";
 import searchIcon from "../../../assets/icons/search-24px.svg";
+import editIcon from "../../../assets/icons/edit-24px.svg";
 
-export class InventoryHeader extends Component {
+export class SingleInventoryHeader extends Component {
   // inventoryData = this.props.inventories;
   // state = {
   //   show: false,
@@ -27,7 +28,10 @@ export class InventoryHeader extends Component {
           </div>
           <div className="table-header__right">
             {/* <Link to={`/warehouses/add/`}> */}
-            <div className="blue-button">+ Add New Item </div> {/* </Link> */}
+            <div className="edit-button">
+              <img src={editIcon} alt="Edit-Icon" /> Edit{" "}
+            </div>{" "}
+            {/* </Link> */}
           </div>
         </div>
         <InventorySummary />
@@ -36,4 +40,4 @@ export class InventoryHeader extends Component {
   }
 }
 
-export default InventoryHeader;
+export default SingleInventoryHeader;

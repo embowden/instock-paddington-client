@@ -8,7 +8,7 @@ import "./table.scss";
 import InventoryHeader from "./Header/InventoryHeader";
 import Warehouses from "../Warehouses/Warehouses";
 
-const Table = ({ warehouses, getData }) => {
+const WarehouseTable = ({ warehouses, getData }) => {
   // const addedWarehouses = props.warehouseData.map((field) => {
   //   render() {
 
@@ -24,8 +24,6 @@ const Table = ({ warehouses, getData }) => {
     <>
       <div className="table">
         <TableHeader />
-
-        {/* <div className="table-row"> */}
         <TableLabels />
         {warehouses.map((warehouseObject) => {
           return (
@@ -42,4 +40,4 @@ const Table = ({ warehouses, getData }) => {
   //   });
 };
 
-export default Table;
+export default WarehouseTable;

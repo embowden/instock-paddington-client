@@ -11,7 +11,7 @@ export class InventoryLabels extends Component {
           <div className="table-row__header" id="non-mobile">
             <div className="table-row__column--1">
               <div className="row-1 label" id="l-page-header">
-                INVENTORY ITEM{" "}
+                Inventory Item{" "}
                 <img src={sortIcon} alt="Sort Icon" className="icon "></img>
               </div>
               <div className="row-2 label">
@@ -26,10 +26,6 @@ export class InventoryLabels extends Component {
               </div>
               <div className="row-4 label">
                 QTY <img src={sortIcon} alt="Sort Icon" className="icon "></img>
-              </div>
-              <div className="row-4 label">
-                Warehouse{" "}
-                <img src={sortIcon} alt="Sort Icon" className="icon "></img>
               </div>
             </div>
             <div className="table-row__column--3">
