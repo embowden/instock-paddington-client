@@ -7,10 +7,8 @@ import editIcon from "../../../assets/icons/edit-24px.svg";
 import deleteIcon from "../../../assets/icons/delete-outline-24px.svg";
 
 export class WarehouseDetailsBody extends Component {
-  // inventoryData = this.props.inventories;
   state = {
     show: false,
-    // currentID: this.props.inventories.id,
     inventoryItem: this.props.inventoryItem,
   };
 
@@ -41,8 +39,11 @@ export class WarehouseDetailsBody extends Component {
               <div className="table-row__column--2">
                 <div className="row-3 mobile">
                   <div id="mobile-only">Status</div>
-                  <div className="instock">IN STOCK</div>
-                  <div className="no-stock">OUT OF STOCK</div>
+                  {this.props.inventoryItem.status === "In Stock" ? (
+                    <div className="instock">IN STOCK</div>
+                  ) : (
+                    <div className="no-stock">OUT OF STOCK</div>
+                  )}
                 </div>
                 <div className="row-4 mobile">
                   <div id="mobile-only">QTY</div>
@@ -62,16 +63,16 @@ export class WarehouseDetailsBody extends Component {
                     this.setState({ show: true });
                   }}
                 />
-                {/* <Modal
+                <Modal
                   onClose={() => {
                     this.setState({ show: false });
                   }}
                   type="inventory"
                   show={this.state.show}
-                  objectID={this.state.currentID}
-                  objectName={this.props.inventories.name}
+                  objectID={this.state.inventoryItem.id}
+                  objectName={this.state.inventoryItem.itemName}
                   getData={this.props.getData}
-                /> */}
+                />
               </div>
             </div>
           </div>
