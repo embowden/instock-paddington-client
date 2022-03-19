@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
-import WarehouseDetailsSummary from "../Summary/InventorySummary";
+import WarehouseDetailsSummary from "../Summary/WarehouseDetailsSummary";
 import "../table.scss";
 import "./warehousedetailsheader.scss";
 import editIcon from "../../../assets/icons/edit-24px.svg";
@@ -24,7 +24,8 @@ export class WarehouseDetailsHeader extends Component {
             </h1>
           </div>
           <div className="edit-button">
-            <img src={editIcon} alt="Edit-Icon" /> Edit{" "}
+            <img src={editIcon} alt="Edit-Icon" class="edit-icon" />{" "}
+            <p id="non-mobile">Edit</p>
           </div>
         </div>
         <WarehouseDetailsSummary warehouses={this.props.warehouses} />

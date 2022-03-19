@@ -32,7 +32,7 @@ export class WarehouseDetailsBody extends Component {
                 <div className="row-2 mobile">
                   <div id="mobile-only">Category</div>
                   {this.props.inventories.address},{" "}
-                  {this.props.inventories.city} ,
+                  {this.props.inventories.city},{" "}
                   {this.props.inventories.country}
                   <br></br>
                 </div>
@@ -52,9 +52,6 @@ export class WarehouseDetailsBody extends Component {
             </div>
             <div className="table-row__column--3">
               <div className="row-5 mobile">
-                <Link to={`/inventories/edit/${this.state.currentID}`}>
-                  <img src={editIcon} alt="Edit-Icon" />
-                </Link>{" "}
                 <img
                   src={deleteIcon}
                   alt="Delete-Icon"
@@ -71,7 +68,10 @@ export class WarehouseDetailsBody extends Component {
                   objectID={this.state.currentID}
                   objectName={this.props.inventories.name}
                   getData={this.props.getData}
-                />
+                />{" "}
+                <Link to={`/inventories/edit/${this.state.currentID}`}>
+                  <img src={editIcon} alt="Edit-Icon" />
+                </Link>{" "}
               </div>
             </div>
           </div>

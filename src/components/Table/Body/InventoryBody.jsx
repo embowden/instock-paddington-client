@@ -54,9 +54,6 @@ export class InventoryBody extends Component {
             </div>
             <div className="table-row__column--3">
               <div className="row-5 mobile">
-                <Link to={`/inventory/edit/${this.state.currentID}`}>
-                  <img src={editIcon} alt="Edit-Icon" />
-                </Link>
                 <img
                   src={deleteIcon}
                   alt="Delete-Icon"
@@ -73,7 +70,10 @@ export class InventoryBody extends Component {
                   objectID={this.state.currentID}
                   objectName={this.props.inventories.itemName}
                   getData={this.props.getData}
-                />
+                />{" "}
+                <Link to={`/inventories/edit/${this.state.currentID}`}>
+                  <img src={editIcon} alt="Edit-Icon" />
+                </Link>{" "}
               </div>
             </div>
           </div>
