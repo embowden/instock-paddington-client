@@ -9,8 +9,8 @@ export default class EditInventoryItem extends Component {
     itemName: null,
     description: null,
     category: null,
-    status: null,
-    quantity: null,
+    status: true,
+    quantity: 0,
     warehouse: null,
     formValid: true,
     warehouseData: null,
@@ -21,11 +21,12 @@ export default class EditInventoryItem extends Component {
       .get(`http://localhost:8080/inventory/${this.props.match.params.id}`)
       .then((response) => {
         console.log(response);
+        let boolStatus = this.getItemStatus(response);
         this.setState({
           itemName: response.data.itemName,
           description: response.data.description,
           category: response.data.category,
-          status: response.data.status,
+          status: boolStatus,
           quantity: response.data.quantity,
           warehouse: response.data.warehouseName,
         });
@@ -33,6 +34,10 @@ export default class EditInventoryItem extends Component {
       .catch((error) => {
         console.log(error);
       });
+  };
+
+  getItemStatus = (response) => {
+    if (response.data.status === "In Stock") return true;
   };
 
   getWarehouseList = () => {
@@ -90,7 +95,7 @@ export default class EditInventoryItem extends Component {
       this.state.category === "" ||
       this.state.status === "" ||
       this.state.warehouse === "" ||
-      (this.state.status === "In Stock" && this.state.quantity === 0) ||
+      (this.state.status === "In Stock" && this.state.quantity <= 0) ||
       (this.state.status === "Out Of Stock" && this.state.quantity > 0)
     ) {
       return false;
@@ -110,6 +115,11 @@ export default class EditInventoryItem extends Component {
     this.setState({
       [event.target.name]: event.target.value,
     });
+    if (this.state.status === "false") {
+      this.setState({
+        quantity: 0,
+      });
+    }
   };
 
   handleSubmit = (event) => {
@@ -193,29 +203,29 @@ export default class EditInventoryItem extends Component {
               <h2 className="add-inventory__section-header">
                 Item Availablity
               </h2>
+
               <label>Status</label>
               <fieldset className="add-inventory__in-stock" id="status">
                 <input
                   onChange={this.handleChange}
                   type="radio"
-                  value="In Stock"
+                  value={true}
                   name="status"
                 />
+
                 <label>In Stock</label>
                 <input
                   onChange={this.handleChange}
                   type="radio"
-                  value="Out Of Stock"
+                  value={false}
                   name="status"
                 />
                 <label>Out of Stock</label>
               </fieldset>
-
               {!this.state.warehouse && !this.state.formValid && (
                 <ValidationMessage />
               )}
-
-              {this.state.status === "In Stock" && (
+              {this.state.status === "true" && (
                 <>
                   <label>Quantity</label>
                   <input
@@ -231,7 +241,6 @@ export default class EditInventoryItem extends Component {
                   />
                 </>
               )}
-
               {!this.state.quantity && !this.state.formValid && (
                 <ValidationMessage />
               )}
