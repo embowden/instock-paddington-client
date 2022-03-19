@@ -2,10 +2,8 @@ import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import "../table.scss";
 import "../Header/inventoryheader.scss";
-import editIcon from "../../../assets/icons/edit-24px.svg";
-import backArrow from "../../../assets/icons/arrow-back-24px.svg";
 
-export class InventorySummary extends Component {
+export class WarehouseDetailsSummary extends Component {
   // inventoryData = this.props.inventories;
   // state = {
   //   show: false,
@@ -46,4 +44,4 @@ export class InventorySummary extends Component {
   }
 }
 
-export default InventorySummary;
+export default WarehouseDetailsSummary;

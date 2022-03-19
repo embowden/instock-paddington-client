@@ -6,7 +6,7 @@ import Modal from "../../Modal/Modal";
 import editIcon from "../../../assets/icons/edit-24px.svg";
 import deleteIcon from "../../../assets/icons/delete-outline-24px.svg";
 
-export class TableMain extends Component {
+export class TableBody extends Component {
   // warehouseData = this.props.warehouses;
   state = {
     show: false,
@@ -130,4 +130,4 @@ export class TableMain extends Component {
   }
 }
 
-export default TableMain;
+export default TableBody;
