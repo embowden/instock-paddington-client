@@ -50,7 +50,7 @@ export default class EditInventoryItem extends Component {
   };
 
   updateItem = (event) => {
-    if (this.formValid) {
+    if (this.isFormValid()) {
       let nameAndId = event.target.warehouse.value.split(" "); //*Takes value target from warehouse drop down
       let warehouseID = String(nameAndId.slice(-1)[0]); //*grabs last item in array, always ID
       let warehouseNameArr = nameAndId.filter(
@@ -72,6 +72,7 @@ export default class EditInventoryItem extends Component {
         )
         .then(function (response) {
           event.target.reset();
+          this.getInventoryItem();
           alert(`Item updated successfully`);
           console.log(response);
         });
@@ -84,12 +85,13 @@ export default class EditInventoryItem extends Component {
 
   isFormValid = () => {
     if (
-      !this.state.itemName ||
-      !this.state.description ||
-      !this.state.category ||
-      !this.state.status ||
-      !this.state.quantity ||
-      !this.state.warehouse
+      this.state.itemName === "" ||
+      this.state.description === "" ||
+      this.state.category === "" ||
+      this.state.status === "" ||
+      this.state.warehouse === "" ||
+      (this.state.status === "In Stock" && this.state.quantity === 0) ||
+      (this.state.status === "Out Of Stock" && this.state.quantity > 0)
     ) {
       return false;
     }
@@ -103,6 +105,8 @@ export default class EditInventoryItem extends Component {
   }
 
   handleChange = (event) => {
+    console.log(event.target.name);
+    console.log(event.target.value);
     this.setState({
       [event.target.name]: event.target.value,
     });
