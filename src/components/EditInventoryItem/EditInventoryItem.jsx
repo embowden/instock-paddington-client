@@ -9,7 +9,7 @@ export default class EditInventoryItem extends Component {
     itemName: null,
     description: null,
     category: null,
-    status: true,
+    status: null,
     quantity: null,
     warehouse: null,
     formValid: true,
@@ -186,11 +186,11 @@ export default class EditInventoryItem extends Component {
                   type="radio"
                   value="In Stock"
                   name="status"
-                  // defaultChecked={
-                  //   this.state.status && this.state.status === "In Stock"
-                  //     ? "true"
-                  //     : "false"
-                  // }
+                  defaultChecked={
+                    this.state.status && this.state.status === "In Stock"
+                      ? "true"
+                      : "false"
+                  }
                 />
                 <label>In Stock</label>
                 <input
@@ -198,11 +198,11 @@ export default class EditInventoryItem extends Component {
                   type="radio"
                   value="Out Of Stock"
                   name="status"
-                  // defaultChecked={
-                  //   this.state.status && this.state.status === "Out Of Stock"
-                  //     ? "true"
-                  //     : "false"
-                  // }
+                  defaultChecked={
+                    this.state.status && this.state.status === "Out Of Stock"
+                      ? "true"
+                      : "false"
+                  }
                 />
                 <label>Out of Stock</label>
               </fieldset>
