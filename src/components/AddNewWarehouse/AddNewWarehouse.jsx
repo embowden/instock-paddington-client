@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { Link } from "react-router-dom";
 import "./add-new-warehouse.scss";
 import axios from "axios";
 import arrow from "../../assets/icons/arrow-back-24px.svg";
@@ -72,9 +73,9 @@ export default class AddNewWarehouse extends Component {
     return (
       <div className="add-warehouse">
         <h1 className="add-warehouse__header">
-          <span className="add-warehouse__back">
+          <Link to={"/warehouses"} className="add-warehouse__back">
             <img src={arrow} alt="" />
-          </span>
+          </Link>
           Add New Warehouse
         </h1>
         <form
