@@ -25,7 +25,8 @@ export class WarehouseDetailsHeader extends Component {
             </h1>
           </div>
           <div className="edit-button">
-            <img src={editIcon} alt="Edit-Icon" /> Edit{" "}
+            <img src={editIcon} alt="Edit-Icon" class="edit-icon" />{" "}
+            <p id="non-mobile">Edit</p>
           </div>
         </div>
         <WarehouseDetailsSummary

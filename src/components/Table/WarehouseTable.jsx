@@ -1,12 +1,8 @@
 import React, { Component } from "react";
-import TableHeader from "./Header/TableHeader";
-import TableLabels from "./Labels/TableLabels";
-import TableBody from "./Body/TableBody";
-import InventoryBody from "./Body/InventoryBody";
-import InventoryLabel from "./Labels/InventoryLabels";
+import WarehouseHeader from "./Header/WarehouseHeader";
+import WarehouseLabels from "./Labels/WarehouseLabels";
+import WarehouseBody from "./Body/WarehouseBody";
 import "./table.scss";
-import InventoryHeader from "./Header/InventoryHeader";
-import Warehouses from "../Warehouses/Warehouses";
 
 const WarehouseTable = ({ warehouses, getData }) => {
   // const addedWarehouses = props.warehouseData.map((field) => {
@@ -17,17 +13,17 @@ const WarehouseTable = ({ warehouses, getData }) => {
   //   const addedWarehouses = props.warehouseData.map((warehouse) => {
 
   warehouses.map((warehouse) => {
-    return <TableBody warehouses={warehouses} />;
+    return <WarehouseBody warehouses={warehouses} />;
   });
 
   return (
     <>
       <div className="table">
-        <TableHeader />
-        <TableLabels />
+        <WarehouseHeader />
+        <WarehouseLabels />
         {warehouses.map((warehouseObject) => {
           return (
-            <TableBody
+            <WarehouseBody
               getData={getData}
               warehouses={warehouseObject}
               key={warehouseObject.id}
