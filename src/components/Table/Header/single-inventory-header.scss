@@ -2,6 +2,37 @@
 @use "../../../styles/partials/mixins" as mixins;
 @use "../../../styles/partials/variables" as *;
 
+.divider {
+  border-bottom: 1px solid #bdc5d5;
+}
+
+.instock,
+.no-stock {
+  font-size: 12px;
+}
+.instock {
+  width: 65px;
+}
+
+.no-stock {
+  width: 92px;
+}
+
+.summary-details {
+  padding-bottom: 1rem;
+}
+
+#topper {
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
+  display: flex;
+  flex-direction: column;
+}
+
+#summary {
+  height: auto;
+}
+
 .summary__middle,
 .summary__title {
   display: flex;
@@ -49,6 +80,7 @@
     padding-left: 40px;
   }
 }
+
 .mobile-divider {
   width: 100%;
   display: flex;

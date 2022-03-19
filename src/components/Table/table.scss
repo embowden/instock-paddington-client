@@ -27,6 +27,23 @@ a:active {
   }
 }
 
+.edit-button {
+  border-radius: 50px;
+  width: 81px;
+  height: 38px;
+  background-color: #2e66e5;
+  color: white;
+  display: flex;
+  justify-content: space-evenly;
+  margin-right: 40px;
+  padding-right: 0.5rem;
+}
+
+.edit-icon {
+  filter: grayscale(100%);
+  // filter: contrast(100%);
+}
+
 //for inventory
 .table-topper {
   height: 5rem;
