@@ -11,7 +11,7 @@ export class TableHeader extends Component {
           <div className="table-header__left" id="l-page-header">
             <h1 className="table-header__header">Warehouses </h1>
           </div>
-          <div className="table-header__middle" id="non-mobile"></div>
+          <div className="table-header__left" id="non-mobile"></div>
           <div className="table-header__right ">
             <div className="search-button">
               Search...

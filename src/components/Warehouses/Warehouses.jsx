@@ -1,9 +1,7 @@
 import React, { Component } from "react";
 import "./warehouse.scss";
 import axios from "axios";
-import Modal from "../Modal/Modal";
 import WarehouseTable from "../Table/WarehouseTable";
-import InventoryTable from "../Table/InventoryTable";
 
 //Axios
 const portAPI = "http://localhost:8080/warehouses";
@@ -57,12 +55,6 @@ export default class Warehouses extends Component {
           <WarehouseTable
             getData={this.getAllWarehouse}
             warehouses={this.state.warehouses}
-          />
-        )}
-        {this.state.inventories && (
-          <InventoryTable
-            getData={this.getAllInventories}
-            inventories={this.state.inventories}
           />
         )}
       </>
