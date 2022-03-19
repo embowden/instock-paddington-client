@@ -7,12 +7,15 @@ import editIcon from "../../../assets/icons/edit-24px.svg";
 import backArrow from "../../../assets/icons/arrow-back-24px.svg";
 
 export class WarehouseDetailsHeader extends Component {
-  // inventoryData = this.props.inventories;
-  // state = {
-  //   show: false,
-  //   currentID: this.props.inventories.id,
-  // };
+
   render() {
+    const currWarehouse = this.props.warehouses.find(
+      (warehouse) => warehouse.id === this.props.match.params.id
+    );
+
+    console.log(this.props.match.params.id);
+    console.log(currWarehouse);
+
     return (
       <>
         <div className="summary__top">
@@ -21,13 +24,15 @@ export class WarehouseDetailsHeader extends Component {
               <Link to="/warehouses">
                 <img src={backArrow} alt="Back-Arrow" className="backArrow" />
               </Link>
-              Warehouses
+              {currWarehouse.name}
             </h1>
           </div>
-          <div className="edit-button">
-            <img src={editIcon} alt="Edit-Icon" class="edit-icon" />{" "}
-            <p id="non-mobile">Edit</p>
-          </div>
+          <Link to={`/warehouses/edit/${currWarehouse.id}`}>
+            <div className="edit-button">
+              <img src={editIcon} alt="Edit-Icon" class="edit-icon" />
+              <p id="non-mobile">Edit</p>
+            </div>
+          </Link>
         </div>
         <WarehouseDetailsSummary
           warehouses={this.props.warehouses}

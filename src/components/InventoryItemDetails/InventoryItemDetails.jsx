@@ -8,27 +8,27 @@ import "./inventory-item-details.scss";
 const portAPI = "http://localhost:8080/warehouses";
 export default class InventoryItemDetails extends Component {
   state = {
-    warehouses: null,
+    // warehouses: null,
     inventories: null,
   };
 
-  getAllWarehouse = () => {
-    axios
-      .get(`http://localhost:8080/warehouses`)
-      .then((response) => {
-        console.log(response);
-        this.setState({
-          warehouses: response.data,
-        });
-      })
-      .catch((error) => {
-        console.log(error);
-      });
-  };
+  // getAllWarehouse = () => {
+  //   axios
+  //     .get(`http://localhost:8080/warehouses`)
+  //     .then((response) => {
+  //       console.log(response);
+  //       this.setState({
+  //         warehouses: response.data,
+  //       });
+  //     })
+  //     .catch((error) => {
+  //       console.log(error);
+  //     });
+  // };
 
   getAllInventories = () => {
     axios
-      .get(`http://localhost:8080/warehouses`)
+      .get(`http://localhost:8080/inventory`)
       .then((response) => {
         console.log(response);
         this.setState({
@@ -41,7 +41,7 @@ export default class InventoryItemDetails extends Component {
   };
 
   componentDidMount() {
-    this.getAllWarehouse();
+    // this.getAllWarehouse();
     this.getAllInventories();
   }
 
@@ -54,8 +54,9 @@ export default class InventoryItemDetails extends Component {
       <>
         {this.state.inventories && (
           <SingleInventoryTable
-            getData={this.getAllInventories}
+            // getData={this.getAllInventories}
             inventories={this.state.inventories}
+            match={this.props.match}
           />
         )}
       </>

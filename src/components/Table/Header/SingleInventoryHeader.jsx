@@ -16,22 +16,23 @@ export class SingleInventoryHeader extends Component {
       <>
         <div className="table-header">
           <div className="table-header__left" id="l-page-header">
-            <h1 className="table-header__header">Inventory </h1>
+            <h1 className="table-header__header">
+              {this.props.inventoryItem.itemName}
+            </h1>
           </div>
           <div className="table-header__left" id="non-mobile"></div>
           <div className="table-header__right "></div>
           <div className="table-header__right">
-            {/* <Link to={`/warehouses/add/`}> */}
-            <div className="edit-button">
-              <img src={editIcon} className="edit-icon" alt="Edit-Icon" />{" "}
-              <p id="non-mobile">Edit</p>{" "}
-            </div>{" "}
-            {/* </Link> */}
+            <Link to={`/inventory/edit/${this.props.inventoryItem.id}`}>
+              <div className="edit-button">
+                <img src={editIcon} className="edit-icon" alt="Edit-Icon" />
+                <p id="non-mobile">Edit</p>
+              </div>
+            </Link>
           </div>
         </div>
         <div className="divider"></div>
-
-        <SingleInventorySummary />
+        <SingleInventorySummary inventoryItem={this.props.inventoryItem} />
       </>
     );
   }
