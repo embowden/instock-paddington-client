@@ -37,7 +37,11 @@ export default class EditInventoryItem extends Component {
   };
 
   getItemStatus = (response) => {
-    if (response.data.status === "In Stock") return true;
+    if (response.data.status === "In Stock") {
+      return "true";
+    } else {
+      return "false";
+    }
   };
 
   getWarehouseList = () => {
@@ -56,6 +60,10 @@ export default class EditInventoryItem extends Component {
 
   updateItem = (event) => {
     if (this.isFormValid()) {
+      let statusMessage =
+        event.target.status.value === "true" ? "In Stock" : "Out of Stock";
+      console.log(statusMessage);
+      console.log(event.target.status.value);
       let nameAndId = event.target.warehouse.value.split(" "); //*Takes value target from warehouse drop down
       let warehouseID = String(nameAndId.slice(-1)[0]); //*grabs last item in array, always ID
       let warehouseNameArr = nameAndId.filter(
@@ -71,13 +79,13 @@ export default class EditInventoryItem extends Component {
             itemName: event.target.itemName.value,
             description: event.target.description.value,
             category: event.target.category.value,
-            status: event.target.status.value,
+            status: statusMessage,
             quantity: event.target.quantity.value,
           }
         )
         .then(function (response) {
           event.target.reset();
-          this.getInventoryItem();
+          // this.getInventoryItem();
           alert(`Item updated successfully`);
           console.log(response);
         });
@@ -95,8 +103,8 @@ export default class EditInventoryItem extends Component {
       this.state.category === "" ||
       this.state.status === "" ||
       this.state.warehouse === "" ||
-      (this.state.status === "In Stock" && this.state.quantity <= 0) ||
-      (this.state.status === "Out Of Stock" && this.state.quantity > 0)
+      (this.state.status === "true" && this.state.quantity <= 0) ||
+      (this.state.status === "false" && this.state.quantity > 0)
     ) {
       return false;
     }
@@ -110,8 +118,6 @@ export default class EditInventoryItem extends Component {
   }
 
   handleChange = (event) => {
-    console.log(event.target.name);
-    console.log(event.target.value);
     this.setState({
       [event.target.name]: event.target.value,
     });
@@ -209,7 +215,7 @@ export default class EditInventoryItem extends Component {
                 <input
                   onChange={this.handleChange}
                   type="radio"
-                  value={true}
+                  value="true"
                   name="status"
                 />
 
@@ -217,7 +223,7 @@ export default class EditInventoryItem extends Component {
                 <input
                   onChange={this.handleChange}
                   type="radio"
-                  value={false}
+                  value="false"
                   name="status"
                 />
                 <label>Out of Stock</label>
@@ -241,9 +247,9 @@ export default class EditInventoryItem extends Component {
                   />
                 </>
               )}
-              {!this.state.quantity && !this.state.formValid && (
-                <ValidationMessage />
-              )}
+              {!this.state.quantity &&
+                this.state.status === "true" &&
+                !this.state.formValid && <ValidationMessage />}
               <label>Warehouse</label>
               <select
                 onChange={this.handleChange}
