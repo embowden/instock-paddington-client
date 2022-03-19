@@ -75,7 +75,7 @@ export class TableBody extends Component {
               <div className="table-row__column--1">
                 <div className="row-1 mobile">
                   <div id="mobile-only">Warehouse</div>
-                  <Link to={`/inventories/details/${this.state.currentID}`}>
+                  <Link to={`/warehouses/details/${this.state.currentID}`}>
                     {this.props.warehouses.name}
                     <Arrow />
                   </Link>
@@ -101,7 +101,7 @@ export class TableBody extends Component {
             </div>
             <div className="table-row__column--3">
               <div className="row-5 mobile">
-                <Link to={`/inventories/edit/${this.state.currentID}`}>
+                <Link to={`/warehouses/edit/${this.state.currentID}`}>
                   <img src={editIcon} alt="Edit-Icon" />
                 </Link>{" "}
                 <img
@@ -115,7 +115,7 @@ export class TableBody extends Component {
                   onClose={() => {
                     this.setState({ show: false });
                   }}
-                  type="inventory"
+                  type="warehouse"
                   show={this.state.show}
                   objectID={this.state.currentID}
                   objectName={this.props.warehouses.name}

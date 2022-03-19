@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { Link } from "react-router-dom";
 import "./edit-warehouse.scss";
 import axios from "axios";
 import arrow from "../../assets/icons/arrow-back-24px.svg";
@@ -17,7 +18,7 @@ export default class EditWarehouse extends Component {
     formValid: true,
   };
 
-  componentDidMount() {
+  getWarehouseData = () => {
     axios
       .get(
         `http://localhost:8080/warehouses/${this.props.match.params.warehouseId}`
@@ -38,7 +39,36 @@ export default class EditWarehouse extends Component {
       .catch((error) => {
         console.log(error);
       });
+  };
+
+  componentDidMount() {
+    this.getWarehouseData();
+    // axios
+    //   .get(
+    //     `http://localhost:8080/warehouses/${this.props.match.params.warehouseId}`
+    //   )
+    //   .then((response) => {
+    //     console.log(response);
+    //     this.setState({
+    //       warehouseName: response.data.name,
+    //       streetAdress: response.data.address,
+    //       city: response.data.city,
+    //       country: response.data.country,
+    //       contactName: response.data.contact.name,
+    //       position: response.data.contact.position,
+    //       phoneNumber: response.data.contact.phone,
+    //       email: response.data.contact.email,
+    //     });
+    //   })
+    //   .catch((error) => {
+    //     console.log(error);
+    //   });
+    // I LEFT THIS HERE FOR YOU TO SEE BUT YOU CAN DELETE, ITS NOW IN THE FUNCTION ABOVE
   }
+
+  handleCancel = () => {
+    this.getWarehouseData();
+  };
 
   handleChange = (event) => {
     this.setState({
@@ -98,9 +128,9 @@ export default class EditWarehouse extends Component {
     return (
       <div className="add-warehouse">
         <h1 className="add-warehouse__header">
-          <span className="add-warehouse__back">
+          <Link to={`/warehouses`} className="add-warehouse__back">
             <img src={arrow} alt="" />
-          </span>
+          </Link>
           Edit Warehouse
         </h1>
         <form
@@ -233,7 +263,11 @@ export default class EditWarehouse extends Component {
           </div>
 
           <div className="add-warehouse__buttons">
-            <button type="reset" className="add-warehouse__cancel">
+            <button
+              type="reset"
+              className="add-warehouse__cancel"
+              onClick={this.handleCancel}
+            >
               Cancel
             </button>
             <button type="submit" className="add-warehouse__add">
