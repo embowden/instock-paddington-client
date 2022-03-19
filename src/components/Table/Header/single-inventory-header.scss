@@ -2,16 +2,42 @@
 @use "../../../styles/partials/mixins" as mixins;
 @use "../../../styles/partials/variables" as *;
 
+.divider {
+  border-bottom: 1px solid #bdc5d5;
+}
+
+.instock,
+.no-stock {
+  font-size: 12px;
+}
+.instock {
+  width: 65px;
+}
+
+.no-stock {
+  width: 92px;
+}
+
+.summary-details {
+  padding-bottom: 1rem;
+}
+
+#single-inventory-topper {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+#summary {
+  height: auto;
+}
+
 .summary__middle,
 .summary__title {
   display: flex;
   width: 25%;
   justify-content: flex-start;
   align-items: center;
-}
-.summary__left,
-.summary__right {
-  width: 25%;
 }
 
 .summary {
@@ -36,7 +62,7 @@
   }
   &__left {
     padding-left: 40px;
-    width: 70%;
+    width: 100%;
   }
   &__middle {
     border-right: 1px solid #bdc5d5;
@@ -44,14 +70,19 @@
   &__right {
     justify-content: space-between;
     align-items: left;
-
     width: 60%;
     padding-left: 40px;
   }
 }
+
 .mobile-divider {
   width: 100%;
   display: flex;
+  &__summary-section {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+  }
 }
 @include breakpoints.small {
   .summary {
@@ -73,6 +104,14 @@
       justify-content: flex-start;
       padding-left: 24px;
     }
+  }
+
+  .table-header {
+    display: flex;
+    justify-content: space-around;
+    flex-direction: row;
+    height: auto;
+    padding-top: 1rem;
   }
 
   .summary__right {

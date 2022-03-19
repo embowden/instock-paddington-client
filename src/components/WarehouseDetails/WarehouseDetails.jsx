@@ -3,6 +3,7 @@ import "./warehouse-details.scss";
 import "./warehouse-details.scss";
 import axios from "axios";
 import WarehouseDetailsTable from "../Table/WarehouseDetailsTable";
+
 //Axios
 const portAPI = "http://localhost:8080/warehouses";
 export default class WarehouseDetails extends Component {
