@@ -1,47 +1,46 @@
-import React, { Component } from "react";
-import { Link } from "react-router-dom";
+import React from "react";
 import "../table.scss";
 import "../Header/inventoryheader.scss";
 
-export class WarehouseDetailsSummary extends Component {
-  // inventoryData = this.props.inventories;
-  // state = {
-  //   show: false,
-  //   currentID: this.props.inventories.id,
-  // };
-  render() {
-    return (
-      <>
-        <div className="summary">
-          <div className="summary__left" id="l-page-header">
-            <p id="title">Warehouse Address</p>
-            <p id="mobile-only">address,city , country</p>
-            <p id="non-mobile">
-              address, <br></br>
-              city ,country
-            </p>
-          </div>
-          <div className="summary__middle" id="non-mobile"></div>
-          <div className="mobile-divider">
-            <div className="summary__right ">
-              <div>
-                <p id="title">Contact Name</p> <p> contactname</p>
-                <p> contactposition</p>
-              </div>
-              {/* {this.props.warehouses.contact.name} */}
-            </div>{" "}
-            <div className="summary__right ">
-              <div>
-                <p id="title">Contact Details</p>
-              </div>
-              <p> contactphone</p>
-              <p> contactemail</p>
+const WarehouseDetailsSummary = ({ warehouses, match }) => {
+  const currWarehouse = warehouses.find(
+    (warehouse) => warehouse.id === match.params.id
+  );
+
+  return (
+    <>
+      <div className="summary">
+        <div className="summary__left" id="l-page-header">
+          <p id="title">Warehouse</p>
+          <p id="mobile-only">
+            {currWarehouse.address}, {currWarehouse.city},
+            {currWarehouse.country}
+          </p>
+          <p id="non-mobile">
+            {currWarehouse.address}
+            <br></br>
+            {currWarehouse.city}, {currWarehouse.country}
+          </p>
+        </div>
+        <div className="summary__middle" id="non-mobile"></div>
+        <div className="mobile-divider">
+          <div className="summary__right ">
+            <div>
+              <p id="title">Contact Name</p> <p>{currWarehouse.contact.name}</p>
+              <p>{currWarehouse.contact.position}</p>
             </div>
           </div>
+          <div className="summary__right ">
+            <div>
+              <p id="title">Contact Details</p>
+            </div>
+            <p>{currWarehouse.contact.phone}</p>
+            <p>{currWarehouse.contact.email}</p>
+          </div>
         </div>
-      </>
-    );
-  }
-}
+      </div>
+    </>
+  );
+};
 
 export default WarehouseDetailsSummary;

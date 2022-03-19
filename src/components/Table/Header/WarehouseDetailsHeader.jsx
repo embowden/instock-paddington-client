@@ -18,8 +18,9 @@ export class WarehouseDetailsHeader extends Component {
         <div className="summary__top">
           <div className="summary__left" id="l-page-header">
             <h1 className="summary__title">
-              {" "}
-              <img src={backArrow} alt="Back-Arrow" className="backArrow" />
+              <Link to="/warehouses">
+                <img src={backArrow} alt="Back-Arrow" className="backArrow" />
+              </Link>
               Warehouses
             </h1>
           </div>
@@ -28,7 +29,10 @@ export class WarehouseDetailsHeader extends Component {
             <p id="non-mobile">Edit</p>
           </div>
         </div>
-        <WarehouseDetailsSummary />
+        <WarehouseDetailsSummary
+          warehouses={this.props.warehouses}
+          match={this.props.match}
+        />
       </>
     );
   }
