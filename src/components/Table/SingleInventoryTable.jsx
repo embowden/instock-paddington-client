@@ -13,8 +13,10 @@ const SingleInventoryTable = ({ inventories, match }) => {
 
   return (
     <>
-      <div className="table liftoff">
-        <SingleInventory inventoryItem={singleInventory} />
+      <div className="liftoff">
+        <div className="table">
+          <SingleInventory inventoryItem={singleInventory} />
+        </div>
       </div>
     </>
   );
