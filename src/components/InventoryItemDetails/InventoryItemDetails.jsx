@@ -5,27 +5,10 @@ import SingleInventoryTable from "../Table/SingleInventoryTable";
 import "./inventory-item-details.scss";
 import "../../styles/liftoff.scss";
 
-//Axios
-const portAPI = "http://localhost:8080/warehouses";
 export default class InventoryItemDetails extends Component {
   state = {
-    // warehouses: null,
     inventories: null,
   };
-
-  // getAllWarehouse = () => {
-  //   axios
-  //     .get(`http://localhost:8080/warehouses`)
-  //     .then((response) => {
-  //       console.log(response);
-  //       this.setState({
-  //         warehouses: response.data,
-  //       });
-  //     })
-  //     .catch((error) => {
-  //       console.log(error);
-  //     });
-  // };
 
   getAllInventories = () => {
     axios
@@ -42,24 +25,20 @@ export default class InventoryItemDetails extends Component {
   };
 
   componentDidMount() {
-    // this.getAllWarehouse();
     this.getAllInventories();
   }
-
-  // componentDidUpdate() {
-  //   this.getAllWarehouse();
-  // }
 
   render() {
     return (
       <>
-        {this.state.inventories && (
-          <SingleInventoryTable
-            // getData={this.getAllInventories}
-            inventories={this.state.inventories}
-            match={this.props.match}
-          />
-        )}
+        <div className="liftoff">
+          {this.state.inventories && (
+            <SingleInventoryTable
+              inventories={this.state.inventories}
+              match={this.props.match}
+            />
+          )}
+        </div>
       </>
     );
   }

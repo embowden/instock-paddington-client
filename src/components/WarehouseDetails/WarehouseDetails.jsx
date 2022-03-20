@@ -1,11 +1,9 @@
 import React, { Component } from "react";
 import "./warehouse-details.scss";
-import "./warehouse-details.scss";
+import "../../styles/liftoff.scss";
 import axios from "axios";
 import WarehouseDetailsTable from "../Table/WarehouseDetailsTable";
 
-//Axios
-// const portAPI = "http://localhost:8080/warehouses";
 export default class WarehouseDetails extends Component {
   state = {
     warehouses: null,
@@ -45,21 +43,19 @@ export default class WarehouseDetails extends Component {
     this.getAllInventories();
   }
 
-  // componentDidUpdate() {
-  //   this.getAllWarehouse();
-  // }
-
   render() {
     return (
       <>
-        {this.state.inventories && (
-          <WarehouseDetailsTable
-            getData={this.getAllInventories}
-            inventories={this.state.inventories}
-            warehouses={this.state.warehouses}
-            match={this.props.match}
-          />
-        )}
+        <div className="liftoff">
+          {this.state.inventories && (
+            <WarehouseDetailsTable
+              getData={this.getAllInventories}
+              inventories={this.state.inventories}
+              warehouses={this.state.warehouses}
+              match={this.props.match}
+            />
+          )}
+        </div>
       </>
     );
   }

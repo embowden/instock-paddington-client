@@ -11,20 +11,18 @@ const InventoryTable = ({ inventories, getData }) => {
 
   return (
     <>
-      <div className="liftoff">
-        <div className="table">
-          <InventoryHeader />
-          <InventoryLabels />
-          {inventories.map((inventoryObject) => {
-            return (
-              <InventoryBody
-                getData={getData}
-                inventories={inventoryObject}
-                key={inventoryObject.id}
-              />
-            );
-          })}
-        </div>
+      <div className="table">
+        <InventoryHeader />
+        <InventoryLabels />
+        {inventories.map((inventoryObject) => {
+          return (
+            <InventoryBody
+              getData={getData}
+              inventories={inventoryObject}
+              key={inventoryObject.id}
+            />
+          );
+        })}
       </div>
     </>
   );
