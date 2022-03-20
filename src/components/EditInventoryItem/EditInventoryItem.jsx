@@ -60,6 +60,7 @@ export default class EditInventoryItem extends Component {
 
   updateItem = (event) => {
     if (this.isFormValid()) {
+      console.log("in event handler");
       let statusMessage =
         event.target.status.value === "true" ? "In Stock" : "Out of Stock";
       console.log(statusMessage);
@@ -80,16 +81,16 @@ export default class EditInventoryItem extends Component {
             description: event.target.description.value,
             category: event.target.category.value,
             status: statusMessage,
-            quantity: event.target.quantity.value,
+            quantity: this.state.quantity,
           }
         )
         .then(function (response) {
           event.target.reset();
-          // this.getInventoryItem();
           alert(`Item updated successfully`);
           console.log(response);
         });
     } else {
+      console.log("else statment");
       this.setState({
         formValid: false,
       });
@@ -100,11 +101,7 @@ export default class EditInventoryItem extends Component {
     if (
       this.state.itemName === "" ||
       this.state.description === "" ||
-      this.state.category === "" ||
-      this.state.status === "" ||
-      this.state.warehouse === "" ||
-      (this.state.status === "true" && this.state.quantity <= 0) ||
-      (this.state.status === "false" && this.state.quantity > 0)
+      (this.state.quantity > 0 && this.state.status === "false")
     ) {
       return false;
     }
@@ -123,10 +120,18 @@ export default class EditInventoryItem extends Component {
     });
     if (this.state.status === "false") {
       this.setState({
-        quantity: 0,
+        quantity: "0",
       });
     }
   };
+
+  // handleQuantityState = () => {
+  //   if (this.state.status === "false") {
+  //     this.setState({
+  //       quantity: "0",
+  //     });
+  //   }
+  // };
 
   handleSubmit = (event) => {
     event.preventDefault();
@@ -217,6 +222,7 @@ export default class EditInventoryItem extends Component {
                   type="radio"
                   value="true"
                   name="status"
+                  checked={this.state.status === "true"}
                 />
 
                 <label>In Stock</label>
@@ -225,6 +231,7 @@ export default class EditInventoryItem extends Component {
                   type="radio"
                   value="false"
                   name="status"
+                  checked={this.state.status === "false"}
                 />
                 <label>Out of Stock</label>
               </fieldset>
@@ -245,9 +252,14 @@ export default class EditInventoryItem extends Component {
                     type="number"
                     value={this.state.quantity}
                   />
+                  {this.state.quantity < 0 && (
+                    <ValidationMessage
+                      message={"Quantity cannot be less than zero"}
+                    />
+                  )}
                 </>
               )}
-              {!this.state.quantity &&
+              {this.state.quantity === 0 &&
                 this.state.status === "true" &&
                 !this.state.formValid && (
                   <ValidationMessage message={"Quantity Required"} />
@@ -283,7 +295,11 @@ export default class EditInventoryItem extends Component {
             <button type="reset" className="edit-inventory__cancel">
               Cancel
             </button>
-            <button type="submit" className="edit-inventory__add">
+            <button
+              type="submit"
+              onClick={this.getInventoryItem}
+              className="edit-inventory__add"
+            >
               Save
             </button>
           </div>
