@@ -6,9 +6,9 @@ export default class ValidationMessage extends Component {
   render() {
     return (
       <div className="validation-message">
+        <img src={notValid} alt="" />
         <span className="validation-message__string">
-          <img src={notValid} alt="" />
-          This field is required
+          {`${this.props.message}`}
         </span>
       </div>
     );
