@@ -1,0 +1,16 @@
+@use "../styles/partials/mixins" as *;
+@use "../styles/partials/breakpoints" as *;
+@use "../styles/partials/variables" as *;
+
+.liftoff {
+  position: absolute;
+  width: 100%;
+  top: 130px;
+  @include medium {
+    top: 104px;
+  }
+  @include large {
+    top: 104px;
+  }
+}
+

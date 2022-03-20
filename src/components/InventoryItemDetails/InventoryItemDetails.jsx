@@ -3,6 +3,7 @@ import axios from "axios";
 import Modal from "../Modal/Modal";
 import SingleInventoryTable from "../Table/SingleInventoryTable";
 import "./inventory-item-details.scss";
+import "../../styles/liftoff.scss";
 
 //Axios
 const portAPI = "http://localhost:8080/warehouses";
@@ -53,11 +54,13 @@ export default class InventoryItemDetails extends Component {
     return (
       <>
         {this.state.inventories && (
-          <SingleInventoryTable
-            // getData={this.getAllInventories}
-            inventories={this.state.inventories}
-            match={this.props.match}
-          />
+          <div className="liftoff">
+            <SingleInventoryTable
+              // getData={this.getAllInventories}
+              inventories={this.state.inventories}
+              match={this.props.match}
+            />
+          </div>
         )}
       </>
     );
