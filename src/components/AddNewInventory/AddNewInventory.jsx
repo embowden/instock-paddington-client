@@ -5,7 +5,7 @@ import "../../styles/liftoff.scss";
 export default class EditInventoryItem extends Component {
   render() {
     return (
-      <div className="liftoff">
+      <div className="liftoff-two">
         <AddNewInventoryContainer match={this.props.match} />
       </div>
     );
