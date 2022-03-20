@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import axios from "axios";
 import InventoryTable from "../Table/InventoryTable";
 import "./inventory.scss";
+import "../../styles/liftoff.scss";
 
 export default class Inventory extends Component {
   state = {
@@ -29,12 +30,14 @@ export default class Inventory extends Component {
   render() {
     return (
       <>
-        {this.state.inventories && (
-          <InventoryTable
-            getData={this.getAllInventories}
-            inventories={this.state.inventories}
-          />
-        )}
+        <div className="liftoff">
+          {this.state.inventories && (
+            <InventoryTable
+              getData={this.getAllInventories}
+              inventories={this.state.inventories}
+            />
+          )}
+        </div>
       </>
     );
   }

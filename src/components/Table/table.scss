@@ -3,6 +3,7 @@
 @use "../../styles/partials/variables" as *;
 
 .table {
+  background-color: white;
   list-style: none;
   font-size: 14px;
   a,
@@ -340,6 +341,7 @@
   .blue-button {
     width: 168px;
     height: 38px;
+    margin-right: 32px;
   }
   .table {
     margin-left: 32px;
@@ -369,6 +371,7 @@
   .blue-button {
     width: 168px;
     height: 38px;
+    margin-right: 40px;
   }
 
   .table {

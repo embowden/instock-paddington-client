@@ -11,20 +11,18 @@ const WarehouseTable = ({ warehouses, getData }) => {
 
   return (
     <>
-      <div className="liftoff">
-        <div className="table ">
-          <WarehouseHeader />
-          <WarehouseLabels />
-          {warehouses.map((warehouseObject) => {
-            return (
-              <WarehouseBody
-                getData={getData}
-                warehouses={warehouseObject}
-                key={warehouseObject.id}
-              />
-            );
-          })}
-        </div>
+      <div className="table ">
+        <WarehouseHeader />
+        <WarehouseLabels />
+        {warehouses.map((warehouseObject) => {
+          return (
+            <WarehouseBody
+              getData={getData}
+              warehouses={warehouseObject}
+              key={warehouseObject.id}
+            />
+          );
+        })}
       </div>
     </>
   );
