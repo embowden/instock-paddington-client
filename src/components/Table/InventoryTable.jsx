@@ -11,7 +11,7 @@ const InventoryTable = ({ inventories, getData }) => {
 
   return (
     <>
-      <div className="table">
+      <div className="table liftoff">
         <InventoryHeader />
         <InventoryLabels />
         {inventories.map((inventoryObject) => {

@@ -2,10 +2,8 @@ import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import "../table.scss";
 import "./inventoryheader.scss";
-// import InventorySummary from "../Summary/InventorySummary";
-// import editIcon from "../../../assets/icons/edit-24px.svg";
 import searchIcon from "../../../assets/icons/search-24px.svg";
-// import backArrow from "../../../assets/icons/arrow-back-24px.svg";
+import SearchButton from "../Buttons/SearchButton";
 
 export class InventoryHeader extends Component {
   // inventoryData = this.props.inventories;
@@ -16,19 +14,16 @@ export class InventoryHeader extends Component {
   render() {
     return (
       <>
-        <div className="table-header">
+        <div className="table-header" id="warehouse-header">
           <div className="table-header__left" id="l-page-header">
             <h1 className="table-header__header">Inventory </h1>
           </div>
           <div className="table-header__left" id="non-mobile"></div>
           <div className="table-header__right ">
-            <div className="search-button">
-              Search...
-              <img src={searchIcon} alt="search-icon" id="search-icon" />
-            </div>
+            <SearchButton />
           </div>
-          <div className="table-header__right">
-            <Link to="/inventory/add">
+          <div className="table-header__right" id="wide">
+            <Link to="/inventory/add" className="button-link">
               <div className="blue-button">+ Add New Item </div>
             </Link>
           </div>
