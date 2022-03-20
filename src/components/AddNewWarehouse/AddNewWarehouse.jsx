@@ -5,7 +5,7 @@ import "../../styles/liftoff.scss";
 export default class AddNewWarehouse extends Component {
   render() {
     return (
-      <div className="liftoff-two">
+      <div className="liftoff">
         <AddNewWarehouseContainer match={this.props.match} />
       </div>
     );
