@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import "../table.scss";
-import searchIcon from "../../../assets/icons/search-24px.svg";
+import SearchButton from "../Buttons/SearchButton";
 
 export class WarehouseHeader extends Component {
   render() {
@@ -13,13 +13,10 @@ export class WarehouseHeader extends Component {
           </div>
           <div className="table-header__left" id="non-mobile"></div>
           <div className="table-header__right ">
-            <div className="search-button">
-              Search...
-              <img src={searchIcon} alt="search-icon" id="search-icon" />
-            </div>
+            <SearchButton />
           </div>
           <div className="table-header__right" id="wide">
-            <Link to={`/warehouses/add/`}>
+            <Link to={`/warehouses/add/`} className="button-link">
               <div className="blue-button">+ Add New Warehouse </div>{" "}
             </Link>
           </div>

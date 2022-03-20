@@ -7,7 +7,7 @@ import "./table.scss";
 const WarehouseDetailsTable = ({ warehouses, inventories, getData, match }) => {
   return (
     <>
-      <div className="table">
+      <div className="table liftoff">
         <WarehouseDetailsHeader warehouses={warehouses} match={match} />
         <WarehouseDetailsLabels />
         {inventories

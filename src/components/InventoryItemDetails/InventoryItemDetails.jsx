@@ -54,13 +54,11 @@ export default class InventoryItemDetails extends Component {
     return (
       <>
         {this.state.inventories && (
-          <div className="liftoff">
-            <SingleInventoryTable
-              // getData={this.getAllInventories}
-              inventories={this.state.inventories}
-              match={this.props.match}
-            />
-          </div>
+          <SingleInventoryTable
+            // getData={this.getAllInventories}
+            inventories={this.state.inventories}
+            match={this.props.match}
+          />
         )}
       </>
     );

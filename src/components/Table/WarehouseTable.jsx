@@ -5,14 +5,13 @@ import WarehouseBody from "./Body/WarehouseBody";
 import "./table.scss";
 
 const WarehouseTable = ({ warehouses, getData }) => {
-
   warehouses.map((warehouse) => {
     return <WarehouseBody warehouses={warehouses} />;
   });
 
   return (
     <>
-      <div className="table">
+      <div className="table liftoff">
         <WarehouseHeader />
         <WarehouseLabels />
         {warehouses.map((warehouseObject) => {
