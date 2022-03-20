@@ -35,10 +35,25 @@ export default class AddNewWarehouse extends Component {
       !this.state.phoneNumber ||
       !this.state.email
     ) {
+      this.setState({ formValid: false });
       return false;
     }
-
+    this.setState({ formValid: true });
     return true;
+  };
+
+  resetState = () => {
+    this.setState({
+      warehouseName: null,
+      streetAdress: null,
+      city: null,
+      country: null,
+      contactName: null,
+      position: null,
+      phoneNumber: null,
+      email: null,
+      formValid: true,
+    });
   };
 
   handleSubmit = (event) => {
@@ -57,17 +72,21 @@ export default class AddNewWarehouse extends Component {
             email: event.target.email.value,
           },
         })
-        .then(function (response) {
+        .then((response) => {
           event.target.reset();
           alert(`Warehouse added successfully`);
           console.log(response);
+          this.resetState();
         });
+      this.setState({ formValid: false });
     } else {
       this.setState({
         formValid: false,
       });
     }
   };
+
+  message = "This field is required";
 
   render() {
     return (
@@ -100,7 +119,7 @@ export default class AddNewWarehouse extends Component {
                 name="warehouseName"
               />
               {!this.state.warehouseName && !this.state.formValid && (
-                <ValidationMessage />
+                <ValidationMessage message={this.message} />
               )}
               <label>Street Adress</label>
               <input
@@ -113,8 +132,8 @@ export default class AddNewWarehouse extends Component {
                 placeholder="Street Adress"
                 name="streetAdress"
               />
-              {!this.state.warehouseName && !this.state.formValid && (
-                <ValidationMessage />
+              {!this.state.streetAdress && !this.state.formValid && (
+                <ValidationMessage message={this.message} />
               )}
               <label>City</label>
               <input
@@ -127,8 +146,8 @@ export default class AddNewWarehouse extends Component {
                 placeholder="City"
                 name="city"
               />
-              {!this.state.warehouseName && !this.state.formValid && (
-                <ValidationMessage />
+              {!this.state.city && !this.state.formValid && (
+                <ValidationMessage message={this.message} />
               )}
               <label>Country</label>
               <input
@@ -141,8 +160,8 @@ export default class AddNewWarehouse extends Component {
                 placeholder="Country"
                 name="country"
               />
-              {!this.state.warehouseName && !this.state.formValid && (
-                <ValidationMessage />
+              {!this.state.country && !this.state.formValid && (
+                <ValidationMessage message={this.message} />
               )}
             </div>
 
@@ -159,8 +178,8 @@ export default class AddNewWarehouse extends Component {
                 placeholder="Contact Name"
                 name="contactName"
               />
-              {!this.state.warehouseName && !this.state.formValid && (
-                <ValidationMessage />
+              {!this.state.contactName && !this.state.formValid && (
+                <ValidationMessage message={this.message} />
               )}
               <label>Position</label>
               <input
@@ -173,8 +192,8 @@ export default class AddNewWarehouse extends Component {
                 placeholder="Position"
                 name="position"
               />
-              {!this.state.warehouseName && !this.state.formValid && (
-                <ValidationMessage />
+              {!this.state.position && !this.state.formValid && (
+                <ValidationMessage message={this.message} />
               )}
               <label>Phone Number</label>
               <input
@@ -187,8 +206,8 @@ export default class AddNewWarehouse extends Component {
                 placeholder="Phone Number"
                 name="phoneNumber"
               />
-              {!this.state.warehouseName && !this.state.formValid && (
-                <ValidationMessage />
+              {!this.state.phoneNumber && !this.state.formValid && (
+                <ValidationMessage message={this.message} />
               )}
               <label>Email</label>
               <input
@@ -201,14 +220,18 @@ export default class AddNewWarehouse extends Component {
                 placeholder="Email"
                 name="email"
               />
-              {!this.state.warehouseName && !this.state.formValid && (
-                <ValidationMessage />
+              {!this.state.email && !this.state.formValid && (
+                <ValidationMessage message={this.message} />
               )}
             </div>
           </div>
 
           <div className="add-warehouse__buttons">
-            <button type="reset" className="add-warehouse__cancel">
+            <button
+              type="reset"
+              className="add-warehouse__cancel"
+              onClick={this.resetState}
+            >
               Cancel
             </button>
             <button type="submit" className="add-warehouse__add">
