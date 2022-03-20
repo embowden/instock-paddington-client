@@ -7,22 +7,24 @@ import "./table.scss";
 const WarehouseDetailsTable = ({ warehouses, inventories, getData, match }) => {
   return (
     <>
-      <div className="table liftoff">
-        <WarehouseDetailsHeader warehouses={warehouses} match={match} />
-        <WarehouseDetailsLabels />
-        {inventories
-          .filter((inventoryObject) => {
-            return inventoryObject.warehouseID === match.params.id;
-          })
-          .map((inventoryObject) => {
-            return (
-              <WarehouseDetailsBody
-                getData={getData}
-                inventoryItem={inventoryObject}
-                key={inventoryObject.id}
-              />
-            );
-          })}
+      <div className="liftoff">
+        <div className="table">
+          <WarehouseDetailsHeader warehouses={warehouses} match={match} />
+          <WarehouseDetailsLabels />
+          {inventories
+            .filter((inventoryObject) => {
+              return inventoryObject.warehouseID === match.params.id;
+            })
+            .map((inventoryObject) => {
+              return (
+                <WarehouseDetailsBody
+                  getData={getData}
+                  inventoryItem={inventoryObject}
+                  key={inventoryObject.id}
+                />
+              );
+            })}
+        </div>
       </div>
     </>
   );

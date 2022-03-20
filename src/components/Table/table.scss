@@ -139,7 +139,7 @@
 }
 
 .table-row__column--indiviual {
-  border-top: 1px green solid;
+  border-top: 1px #bdc5d5 solid;
 }
 
 .table-row__column--indiviual,
@@ -333,11 +333,6 @@
 
 /////////////////////////////////////////////
 @include breakpoints.medium {
-  .search-button {
-    width: 185px;
-    height: 38px;
-  }
-
   #mobile-only {
     display: none;
   }
@@ -371,10 +366,6 @@
 }
 
 @include breakpoints.large {
-  .search-button {
-    width: 274px;
-    height: 38px;
-  }
   .blue-button {
     width: 168px;
     height: 38px;

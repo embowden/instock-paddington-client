@@ -2,17 +2,6 @@
 @use "../../../styles/partials/mixins" as mixins;
 @use "../../../styles/partials/variables" as *;
 
-.blue-button {
-  background-color: #2e66e5;
-  color: white;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  height: 3rem;
-  padding-left: 1rem;
-  padding-right: 1rem;
-}
-
 #search-icon {
   padding-right: 1rem;
 }
@@ -22,11 +11,12 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  width: 100%;
+
   display: flex;
   padding-left: 1rem;
   height: 3rem;
   border-radius: 50px;
+  margin-right: 1rem;
 }
 
 @include breakpoints.small {
