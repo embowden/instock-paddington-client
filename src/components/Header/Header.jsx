@@ -5,7 +5,7 @@ import logo from "../../assets/logo/instock-logo.svg";
 
 export default function Header() {
   return (
-    <section className="header">
+    <header className="header">
       <section className="header__container">
         <article className="header__branding">
           <img src={logo} alt="" className="header__logo" />
@@ -30,6 +30,6 @@ export default function Header() {
           </NavLink>
         </article>
       </section>
-    </section>
+    </header>
   );
 }
