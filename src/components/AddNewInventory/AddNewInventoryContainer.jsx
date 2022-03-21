@@ -4,6 +4,8 @@ import "./add-new-inventory.scss";
 import axios from "axios";
 import arrow from "../../assets/icons/arrow-back-24px.svg";
 import ValidationMessage from "../../components/ValidationMessage/ValidationMessage";
+import Swal from "sweetalert2/dist/sweetalert2.js";
+import "sweetalert2/src/sweetalert2.scss";
 
 export default class AddNewInventory extends Component {
   state = {
@@ -98,6 +100,12 @@ export default class AddNewInventory extends Component {
           console.log(response);
           event.target.reset();
           this.resetState();
+          Swal.fire({
+            icon: "success",
+            title: "Success!",
+            text: "New inventory item has been added!",
+            confirmButtonColor: "#2e66e5",
+          });
         });
     } else {
       this.setState({

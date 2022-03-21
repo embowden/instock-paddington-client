@@ -4,6 +4,8 @@ import "./edit-warehouse.scss";
 import axios from "axios";
 import arrow from "../../assets/icons/arrow-back-24px.svg";
 import ValidationMessage from "../../components/ValidationMessage/ValidationMessage";
+import Swal from "sweetalert2/dist/sweetalert2.js";
+import "sweetalert2/src/sweetalert2.scss";
 
 export default class EditWarehouse extends Component {
   state = {
@@ -88,6 +90,12 @@ export default class EditWarehouse extends Component {
           }
         )
         .then((response) => {
+          Swal.fire({
+            icon: "success",
+            title: "Success!",
+            text: "Warehouse has been succesfully updated!",
+            confirmButtonColor: "#2e66e5",
+          });
           this.props.history.push("/warehouses");
         });
     } else {

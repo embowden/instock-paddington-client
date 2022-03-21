@@ -4,6 +4,8 @@ import axios from "axios";
 import arrow from "../../assets/icons/arrow-back-24px.svg";
 import ValidationMessage from "../../components/ValidationMessage/ValidationMessage";
 import "./edit-inventory-container.scss";
+import Swal from "sweetalert2/dist/sweetalert2.js";
+import "sweetalert2/src/sweetalert2.scss";
 
 export default class EditInventoryItem extends Component {
   state = {
@@ -72,6 +74,12 @@ export default class EditInventoryItem extends Component {
           }
         )
         .then((response) => {
+          Swal.fire({
+            icon: "success",
+            title: "Success!",
+            text: "Inventory item has been updated!",
+            confirmButtonColor: "#2e66e5",
+          });
           this.props.history.push("/inventory");
         });
     } else {
