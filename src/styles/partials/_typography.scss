@@ -18,13 +18,17 @@
 }
 
 //ELEMENT STYLING
+.wrapper {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
 body {
   font-family: titillium web;
   color: $primary-dark;
   position: relative;
-  height: 100%;
   background-color: $bg-light;
-  padding-bottom: 80px;
 }
 
 h1 {
@@ -108,13 +112,3 @@ a:link,
 a:visited {
   text-decoration: none;
 }
-
-// .wrapper {
-//   display: flex;
-//   flex-direction: column;
-// }
-
-// .main-wrapper {
-//   flex-grow: 1;
-//   min-height: 100%;
-// }

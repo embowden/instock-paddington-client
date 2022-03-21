@@ -54,12 +54,10 @@ export class WarehouseDetailsBody extends Component {
             </div>
             <div className="table-row__column--3">
               <div className="row-5 mobile">
-                <Link to={`/inventory/edit/${this.state.inventoryItem.id}`}>
-                  <img src={editIcon} alt="Edit-Icon" />
-                </Link>
                 <img
                   src={deleteIcon}
                   alt="Delete-Icon"
+                  id="row5"
                   onClick={() => {
                     this.setState({ show: true });
                   }}
@@ -74,6 +72,9 @@ export class WarehouseDetailsBody extends Component {
                   objectName={this.state.inventoryItem.itemName}
                   getData={this.props.getData}
                 />
+                <Link to={`/inventory/edit/${this.state.inventoryItem.id}`}>
+                  <img src={editIcon} alt="Edit-Icon" />
+                </Link>
               </div>
             </div>
           </div>

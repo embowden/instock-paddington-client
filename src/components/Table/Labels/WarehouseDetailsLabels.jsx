@@ -30,7 +30,9 @@ export class InventoryLabels extends Component {
               </div>
             </div>
             <div className="table-row__column--3">
-              <div className="row-5 label">Actions</div>
+              <div className="row-5 label" id="row5">
+                Actions
+              </div>
             </div>
           </div>
         </div>

@@ -1,6 +1,6 @@
 import React from "react";
 import "../table.scss";
-import "../Header/inventoryheader.scss";
+import "../../WarehouseDetails/warehouse-details.scss";
 
 const WarehouseDetailsSummary = ({ warehouses, match }) => {
   const currWarehouse = warehouses.find(
@@ -10,7 +10,7 @@ const WarehouseDetailsSummary = ({ warehouses, match }) => {
   return (
     <>
       <div className="summary">
-        <div className="summary__left" id="l-page-header">
+        <div className="summary__left--details" id="l-page-header">
           <p id="title">Warehouse</p>
           <p id="mobile-only">
             {currWarehouse.address}, {currWarehouse.city},
