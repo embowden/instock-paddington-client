@@ -34,17 +34,11 @@
     padding-top: 24px;
     display: flex;
     justify-content: flex-end;
-    // border: 3px solid blue;
   }
-
-  // &__icon {
-  //   right: 50px;
-  // }
 
   &__header {
     display: flex;
     flex-direction: column;
-    // border: 2px solid orange;
     @include medium {
       padding: 0 40px;
     }

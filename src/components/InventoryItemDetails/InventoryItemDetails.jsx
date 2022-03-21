@@ -2,7 +2,6 @@ import React, { Component } from "react";
 import axios from "axios";
 import Modal from "../Modal/Modal";
 import SingleInventoryTable from "../Table/SingleInventoryTable";
-import "./inventory-item-details.scss";
 import "../../styles/liftoff.scss";
 
 export default class InventoryItemDetails extends Component {

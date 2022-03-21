@@ -15,7 +15,6 @@
   }
 
   &__container {
-    // border: 2px solid lime;
     @include medium {
       display: flex;
       flex-direction: row;
@@ -24,7 +23,6 @@
   }
 
   &__branding {
-    // border: 2px solid hotpink;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -38,7 +36,6 @@
   }
 
   &__links {
-    // border: 2px solid red;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -49,15 +46,12 @@
   }
 
   &__warehouse-link {
-    // -----
     display: flex;
     align-items: center;
     justify-content: center;
     border-radius: 20px;
     height: 36px;
     padding: 0 16px;
-    // -----
-    // border: 1px solid hotpink;
     width: 100%;
     margin-right: 16px;
     background-color: transparent;
@@ -80,15 +74,12 @@
   }
 
   &__inventory-link {
-    // -----
     display: flex;
     align-items: center;
     justify-content: center;
     border-radius: 20px;
     height: 36px;
     padding: 0 16px;
-    // -----
-    // border: 1px solid hotpink;
     width: 100%;
     background-color: transparent;
     color: $secondary-mid;

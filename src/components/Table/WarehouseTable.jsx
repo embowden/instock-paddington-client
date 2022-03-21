@@ -26,7 +26,6 @@ const WarehouseTable = ({ warehouses, getData }) => {
       </div>
     </>
   );
-  //   });
 };
 
 export default WarehouseTable;

@@ -4,11 +4,6 @@ import "../table.scss";
 import "../Header/inventoryheader.scss";
 
 export class SingleInventorySummary extends Component {
-  // inventoryData = this.props.inventories;
-  // state = {
-  //   show: false,
-  //   currentID: this.props.inventories.id,
-  // };
   render() {
     const inventoryItem = this.props.inventoryItem;
     console.log(inventoryItem);
@@ -53,8 +48,7 @@ export class SingleInventorySummary extends Component {
                   <p id="title">WAREHOUSE:</p>{" "}
                   <p>{inventoryItem.warehouseName}</p>
                 </div>
-                {/* {this.props.warehouses.contact.name} */}
-              </div>{" "}
+              </div>
             </div>
             <div className="mobile-divider">
               <div className="summary__right ">
