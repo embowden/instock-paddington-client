@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import "./arrow.scss";
 import chevron from "../../../assets/icons/chevron-right-24px.svg";
-npm;
+
 export class Arrow extends Component {
   render() {
     return (
