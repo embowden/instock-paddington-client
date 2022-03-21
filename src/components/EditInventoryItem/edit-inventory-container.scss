@@ -4,19 +4,23 @@
 
 .edit-inventory {
   background-color: white;
-  max-width: 1020px;
+  // max-width: 1020px;
   box-shadow: $card-shadow;
   margin: 0 16px 0 16px;
 
   @include medium {
-    margin-left: auto;
-    margin-right: auto;
+    // margin-left: auto;
+    // margin-right: auto;
+    margin: 0 32px;
   }
 
   &__header {
     border-bottom: 1px solid $secondary-mid;
     line-height: 2.5;
     padding: 0 24px 0 24px;
+    @include medium {
+      padding: 0;
+    }
   }
 
   &__form {
@@ -33,6 +37,7 @@
       display: flex;
       justify-content: space-between;
       margin: 1rem 0 1rem 0;
+      padding: 0;
     }
   }
   &__back {
@@ -49,6 +54,13 @@
   }
 
   select {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    background: transparent;
+    background-image: url("../../assets/icons/arrow-drop-down-24px.svg");
+    background-position-x: 98%;
+    background-position-y: 50%;
+    background-repeat: no-repeat;
     border-radius: 20px;
     padding: 0 16px;
     height: 36px;
@@ -58,7 +70,7 @@
   }
 
   &__quantity {
-    width: 20%;
+    width: 70px;
   }
 
   textarea {
