@@ -1,0 +1,11 @@
+@use "../../../styles/partials/breakpoints" as breakpoints;
+@use "../../../styles/partials/mixins" as mixins;
+@use "../../../styles/partials/variables" as *;
+
+.label {
+  flex-direction: row;
+}
+
+#row5 {
+  margin-right: 0.5rem;
+}

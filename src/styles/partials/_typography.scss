@@ -1,0 +1,119 @@
+@use "./mixins" as *;
+@use "./breakpoints" as *;
+@use "./variables" as *;
+
+//MAIN FONT (OTF)
+@font-face {
+  font-family: titillium web;
+  src: url("../../assets/fonts/titillium-web/titillium-web-regular.ttf");
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: titillium web;
+  src: url("../../assets/fonts/titillium-web/titillium-web-semi-bold.ttf");
+  font-weight: 600;
+  font-style: normal;
+}
+
+//ELEMENT STYLING
+.wrapper {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+body {
+  font-family: titillium web;
+  color: $primary-dark;
+  position: relative;
+  background-color: $bg-light;
+}
+
+h1 {
+  @include s-page-header;
+  @include medium {
+    @include l-page-header;
+  }
+}
+
+h2 {
+  @include s-subheader;
+  @include medium {
+    @include l-subheader;
+  }
+}
+
+h3,
+label,
+a {
+  @include s-label-link-button;
+  @include medium {
+    @include l-label-link-button;
+  }
+}
+
+h4 {
+  color: $secondary-dark;
+  @include s-tableheader;
+  @include medium {
+    @include l-tableheader;
+  }
+}
+
+// MODAL
+aside {
+  @include s-body-large;
+  @include medium {
+    @include l-body-large;
+  }
+}
+
+//P TAG BASED ON P2 - BODY MEDIUM
+p {
+  @include s-body-medium;
+  @include medium {
+    @include l-body-medium;
+  }
+}
+
+footer {
+  @include s-body-small;
+  @include medium {
+    @include l-body-small;
+  }
+}
+
+button {
+  @include s-label-link-button;
+  border-radius: 1.25rem;
+  height: 2.25rem;
+  padding: 0 1rem;
+  @include medium {
+    @include l-label-link-button;
+    height: 2.375rem;
+  }
+}
+
+input {
+  font-family: titillium web;
+  border-radius: 1.25rem;
+  padding: 0 1rem;
+  height: 2.25rem;
+  @include medium {
+    height: 2.375rem;
+  }
+  &::placeholder {
+    color: $secondary-dark;
+  }
+}
+
+select {
+  font-family: titillium web;
+}
+
+a:link,
+a:visited {
+  text-decoration: none;
+}

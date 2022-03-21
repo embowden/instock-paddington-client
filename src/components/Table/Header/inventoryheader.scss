@@ -1,0 +1,95 @@
+@use "../../../styles/partials/breakpoints" as breakpoints;
+@use "../../../styles/partials/mixins" as mixins;
+@use "../../../styles/partials/variables" as *;
+
+.summary__middle,
+.summary__title {
+  display: flex;
+  width: 25%;
+  justify-content: flex-start;
+  align-items: center;
+}
+.summary__left,
+.summary__right {
+  width: 25%;
+}
+
+.summary {
+  margin-top: 0;
+  display: flex;
+  flex-direction: row;
+  list-style: none;
+  height: 5rem;
+  margin-bottom: 2rem;
+  margin-top: 2rem;
+
+  &__header {
+    line-height: 2;
+  }
+  &__top {
+    display: flex;
+    height: 5rem;
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 0.0625rem solid $secondary-mid;
+  }
+  &__left {
+    padding-left: 2.5rem;
+    width: 70%;
+  }
+  &__middle {
+    border-right: 0.0625rem solid $secondary-mid;
+  }
+  &__right {
+    justify-content: space-between;
+    align-items: left;
+
+    width: 60%;
+    padding-left: 2.5rem;
+  }
+}
+.mobile-divider {
+  width: 100%;
+  display: flex;
+}
+@include breakpoints.small {
+  .summary {
+    background-color: white;
+    flex-direction: column;
+    height: 12.25rem;
+    justify-content: space-around;
+    align-items: center;
+    margin-bottom: 1rem;
+    display: block;
+    &__list {
+      padding-left: 1.5rem;
+      width: 100%;
+    }
+    &__header {
+      padding-left: 1.5rem;
+    }
+    &__left {
+      justify-content: flex-start;
+      padding-left: 1.5rem;
+    }
+  }
+
+  .summary__right {
+    justify-content: center;
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+  }
+  .mobile-divider {
+    padding-top: 1rem;
+  }
+}
+
+@include breakpoints.medium {
+  .summary__header {
+    padding-left: 2rem;
+  }
+}
+
+@include breakpoints.large {
+}

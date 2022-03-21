@@ -1,0 +1,49 @@
+@use "../../../styles/partials/breakpoints" as breakpoints;
+@use "../../../styles/partials/mixins" as mixins;
+@use "../../../styles/partials/variables" as *;
+
+#search-icon {
+  padding-right: 1rem;
+}
+.search-button {
+  background-color: white;
+  border: 0.0625rem solid black;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  display: flex;
+  padding-left: 1rem;
+  height: 3rem;
+  border-radius: 3.125rem;
+  margin-right: 1rem;
+}
+
+@include breakpoints.small {
+  .search-button {
+    height: 2.25rem;
+    border-radius: 3.125rem;
+    font-size: 0.8125rem;
+    margin-left: 1.5rem;
+    margin-right: 1.5rem;
+    width: 100%;
+    margin-bottom: 1rem;
+  }
+}
+
+@include breakpoints.medium {
+  .search-button {
+    width: 11.5625rem;
+    height: 2.375rem;
+  }
+
+  #mobile-only {
+    display: none;
+  }
+}
+
+@include breakpoints.large {
+  .search-button {
+    width: 17.125rem;
+    height: 2.375rem;
+  }
+}

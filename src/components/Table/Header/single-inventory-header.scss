@@ -1,0 +1,134 @@
+@use "../../../styles/partials/breakpoints" as breakpoints;
+@use "../../../styles/partials/mixins" as mixins;
+@use "../../../styles/partials/variables" as *;
+
+.divider {
+  border-bottom: 0.0625rem solid $secondary-mid;
+}
+
+.instock,
+.no-stock {
+  font-size: 0.75rem;
+}
+.instock {
+  width: 4.0625rem;
+}
+
+.no-stock {
+  width: 5.75rem;
+}
+
+.summary-details {
+  padding-bottom: 1rem;
+}
+
+#single-inventory-topper {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+#summary {
+  height: auto;
+}
+
+.summary__middle,
+.summary__title {
+  display: flex;
+  width: 25%;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.summary {
+  margin-top: 0;
+  display: flex;
+  flex-direction: row;
+  list-style: none;
+  height: 5rem;
+  margin-bottom: 2rem;
+  margin-top: 2rem;
+
+  &__header {
+    line-height: 2;
+  }
+  &__top {
+    display: flex;
+    height: 5rem;
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 0.0625rem solid $secondary-mid;
+  }
+  &__left {
+    padding-left: 2.5rem;
+    width: 100%;
+  }
+  &__middle {
+    border-right: 0.0625rem solid $secondary-mid;
+  }
+  &__right {
+    justify-content: space-between;
+    align-items: left;
+    width: 60%;
+    padding-left: 2.5rem;
+  }
+}
+
+.mobile-divider {
+  width: 100%;
+  display: flex;
+  &__summary-section {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+  }
+}
+@include breakpoints.small {
+  .summary {
+    background-color: white;
+    flex-direction: column;
+    height: 12.25rem;
+    justify-content: space-around;
+    align-items: center;
+    margin-bottom: 1rem;
+    display: block;
+    &__list {
+      padding-left: 1.5rem;
+      width: 100%;
+    }
+    &__header {
+      padding-left: 1.5rem;
+    }
+    &__left {
+      justify-content: flex-start;
+      padding-left: 1.5rem;
+    }
+  }
+
+  .table-header {
+    display: flex;
+    justify-content: space-around;
+    flex-direction: row;
+    height: auto;
+    padding-top: 1rem;
+  }
+
+  .summary__right {
+    justify-content: center;
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+  }
+  .mobile-divider {
+    padding-top: 1rem;
+  }
+}
+
+@include breakpoints.medium {
+  .summary__header {
+    padding-left: 2rem;
+  }
+}
+
+@include breakpoints.large {
+}

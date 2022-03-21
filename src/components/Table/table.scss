@@ -1,0 +1,376 @@
+@use "../../styles/partials/breakpoints" as breakpoints;
+@use "../../styles/partials/mixins" as mixins;
+@use "../../styles/partials/variables" as *;
+
+.table {
+  background-color: white;
+  border-radius: $card-border;
+  box-shadow: $card-shadow;
+  list-style: none;
+  font-size: 0.875rem;
+  a,
+  a:visited,
+  a:hover,
+  a:active {
+    cursor: pointer;
+    color: inherit;
+    font-size: 0.875rem;
+  }
+}
+
+.table-header {
+  margin-top: 0;
+  display: flex;
+  flex-direction: row;
+  list-style: none;
+  height: 5rem;
+  &__header {
+    line-height: 2;
+  }
+}
+
+.edit-button {
+  border-radius: 3.125rem;
+  width: 5.0625rem;
+  height: 2.375rem;
+  background-color: $primary-mid;
+  color: white;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  margin-right: 2.5rem;
+  padding-right: 0.5rem;
+}
+
+.edit-icon {
+  filter: brightness(100);
+}
+
+//for inventory
+.table-topper {
+  height: 5rem;
+}
+
+.table-header__left,
+.table-header__right {
+  display: flex;
+  width: 25%;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.table-header__right {
+  justify-content: center;
+}
+
+.table-header__middle {
+  width: 35%;
+}
+
+.blue-button {
+  background-color: $primary-mid;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 3rem;
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+.backArrow {
+  margin-right: 0.75rem;
+}
+
+#title {
+  color: $secondary-dark;
+}
+
+.blue-button {
+  border-radius: 3.125rem;
+}
+
+.table-row {
+  height: 3rem;
+  &__header {
+    background-color: $bg-light;
+  }
+}
+
+//Columns
+
+.table-row__column--1 {
+  display: flex;
+  width: 100%;
+  flex-direction: row;
+  align-items: center;
+  align-content: center;
+  justify-content: space-around;
+}
+.table-row__column--2 {
+  display: flex;
+  width: 100%;
+  flex-direction: row;
+  align-items: center;
+  align-content: center;
+  justify-content: space-around;
+}
+.table-row__column--3 {
+  display: flex;
+  padding-right: 2.6875rem;
+  flex-direction: row;
+  align-items: center;
+  align-content: center;
+  justify-content: space-around;
+}
+
+.table-row__column--indiviual {
+  border-top: 0.0625rem $secondary-mid solid;
+}
+
+.table-row__column--indiviual,
+.table-row__header {
+  display: flex;
+  flex-direction: row;
+  align-content: center;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.table-row__column--indiviual:hover {
+  background-color: rgba(46, 102, 229, 0.07);
+}
+
+////Columns
+.row-1,
+.row-2,
+.row-3,
+.row-5 {
+  display: flex;
+  align-items: center;
+}
+
+.row-1 {
+  color: $primary-mid;
+}
+
+#l-page-header {
+  color: black;
+}
+
+.row-1,
+.row-2,
+.row-3,
+.row-4,
+.row-5 {
+  width: 100%;
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
+}
+
+.row-1 {
+  padding-left: 2.5rem;
+}
+
+.row-5 {
+  flex-direction: row;
+  width: 80%;
+}
+
+///////////////////////////////////////
+@include breakpoints.small {
+  #warehouse-header {
+    flex-direction: column;
+  }
+  .button-link {
+    display: flex;
+    width: 100%;
+  }
+
+  .table-header {
+    background-color: white;
+    flex-direction: column;
+    height: 12.25rem;
+    justify-content: space-around;
+    align-items: center;
+    margin-bottom: 1rem;
+    &__list {
+      padding-left: 1.5rem;
+      width: 100%;
+    }
+    &__header {
+      padding-left: 1.5rem;
+    }
+    &__left {
+      justify-content: flex-start;
+    }
+  }
+
+  .table-row__column--1 {
+    justify-content: flex-start;
+  }
+
+  .table-header__right {
+    justify-content: center;
+  }
+
+  .blue-button,
+  .table-header__right,
+  .table-header__left {
+    width: 100%;
+  }
+
+  .blue-button {
+    height: 2.25rem;
+    border-radius: 3.125rem;
+    font-size: 0.8125rem;
+    margin-left: 1.5rem;
+    margin-right: 1.5rem;
+    width: 100%;
+    margin-bottom: 1rem;
+  }
+
+  .edit-button {
+    border-radius: 6.25rem;
+    width: 2.25rem;
+    height: 2.25rem;
+    background-color: $primary-mid;
+    color: white;
+    display: flex;
+    justify-content: space-evenly;
+    padding: 0;
+    margin-left: 3rem;
+  }
+
+  #non-mobile {
+    display: none;
+  }
+
+  #mobile-only {
+    font-weight: bold;
+    color: black;
+  }
+
+  .mobile {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin-bottom: 1rem;
+  }
+
+  .table {
+    margin-left: 1rem;
+    margin-right: 1rem;
+  }
+
+  .table-row__header {
+    height: 2.5rem;
+  }
+
+  .table-row__column--indiviual {
+    height: auto;
+    flex-direction: column;
+  }
+
+  .table-row__column--1,
+  .table-row__column--2,
+  .table-row__column--3 {
+    width: 100%;
+    // margin-bottom: 1rem;
+  }
+
+  .table-row__column--1,
+  .table-row__column--2 {
+    flex-direction: column;
+    align-items: flex-start;
+    padding-left: 1.5rem;
+  }
+
+  .row-1,
+  .row-3,
+  .row-5,
+  .row-2,
+  .row-4 {
+    width: 100%;
+    padding-left: 0;
+  }
+  .row-5 {
+    display: flex;
+    padding-left: 1.75rem;
+    padding-right: 1.75rem;
+    justify-content: space-between;
+    flex-direction: row;
+  }
+}
+
+/////////////////////////////////////////////
+@include breakpoints.medium {
+  #mobile-only {
+    display: none;
+  }
+
+  .blue-button {
+    width: 10.5rem;
+    height: 2.375rem;
+    margin-right: 2rem;
+  }
+  .table {
+    margin-left: 2rem;
+    margin-right: 2rem;
+  }
+
+  .table-header__header {
+    padding-left: 2rem;
+    width: 25rem;
+  }
+
+  .table-row__header {
+    height: 2.5rem;
+  }
+
+  .table-row__column--indiviual {
+    height: 4.75rem;
+  }
+  .table-header__left {
+    width: 100%;
+  }
+  .row-3 {
+    padding-left: 1rem;
+  }
+}
+
+@include breakpoints.large {
+  .blue-button {
+    width: 10.5rem;
+    height: 2.375rem;
+    margin-right: 2.5rem;
+  }
+
+  .table {
+    margin-left: 8.125rem;
+    margin-right: 8.125rem;
+  }
+
+  .table-row__header {
+    height: 2.5rem;
+    &__header {
+      padding-left: 2.5rem;
+    }
+  }
+
+  .table-row__column--indiviual {
+    height: 4.75rem;
+  }
+}
+
+///-----Animations----///
+//Arrow Animation
+#flex {
+  display: flex;
+}
+
+#flex:hover > .arrow {
+  transition: transform 500ms;
+  transform: translateX(0.25rem);
+}
