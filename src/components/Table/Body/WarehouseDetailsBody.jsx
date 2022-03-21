@@ -24,6 +24,7 @@ export class WarehouseDetailsBody extends Component {
                 <div className="row-1 mobile">
                   <div id="mobile-only">Inventory Item</div>
                   <Link
+                    id="flex"
                     to={`/inventory/details/${this.state.inventoryItem.id}`}
                   >
                     {this.state.inventoryItem.itemName}

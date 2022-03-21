@@ -22,9 +22,11 @@ export class InventoryBody extends Component {
               <div className="table-row__column--1">
                 <div className="row-1 mobile">
                   <div id="mobile-only">INVENTORY ITEM</div>
-                  <Link to={`/inventory/details/${this.state.currentID}`}>
-                    {this.props.inventories.itemName}
-                    <Arrow />
+                  <Link
+                    id="flex"
+                    to={`/inventory/details/${this.state.currentID}`}
+                  >
+                    {this.props.inventories.itemName} <Arrow />
                   </Link>
                 </div>
                 <div className="row-2 mobile">

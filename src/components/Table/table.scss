@@ -19,7 +19,6 @@
 .table-header {
   margin-top: 0;
   display: flex;
-
   flex-direction: row;
   list-style: none;
   height: 5rem;
@@ -81,26 +80,10 @@
   margin-right: 12px;
 }
 
-#search-icon {
-  padding-right: 1rem;
-}
-
 #title {
   color: #5c667e;
 }
-.search-button {
-  background-color: white;
-  border: 1px solid black;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  width: 100%;
-  display: flex;
-  padding-left: 1rem;
-  height: 3rem;
-}
 
-.search-button,
 .blue-button {
   border-radius: 50px;
 }
@@ -194,10 +177,6 @@
   width: 80%;
 }
 
-.label {
-  flex-direction: row;
-}
-
 ///////////////////////////////////////
 @include breakpoints.small {
   #warehouse-header {
@@ -233,18 +212,14 @@
 
   .table-header__right {
     justify-content: center;
-    // padding-left: 24px;
-    // padding-right: 24px;
   }
 
-  .search-button,
   .blue-button,
   .table-header__right,
   .table-header__left {
     width: 100%;
   }
 
-  .search-button,
   .blue-button {
     height: 36px;
     border-radius: 50px;
@@ -394,4 +369,15 @@
   // .row-2 {
   //   padding-left: 40px;
   // }
+}
+
+///-----Animations----///
+//Arrow Animation
+#flex {
+  display: flex;
+}
+
+#flex:hover > .arrow {
+  transition: transform 500ms;
+  transform: translateX(4px);
 }

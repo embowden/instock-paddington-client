@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import "../table.scss";
-
+import "./label.scss";
 import sortIcon from "../../../assets/icons/sort-24px.svg";
 
 export class WarehouseLabels extends Component {

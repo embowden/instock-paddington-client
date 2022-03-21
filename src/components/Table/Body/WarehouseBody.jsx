@@ -24,7 +24,10 @@ export class WarehouseBody extends Component {
               <div className="table-row__column--1">
                 <div className="row-1 mobile">
                   <div id="mobile-only">Warehouse</div>
-                  <Link to={`/warehouses/details/${this.state.currentID}`}>
+                  <Link
+                    id="flex"
+                    to={`/warehouses/details/${this.state.currentID}`}
+                  >
                     {this.props.warehouses.name}
                     <Arrow />
                   </Link>
