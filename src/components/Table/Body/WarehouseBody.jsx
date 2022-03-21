@@ -53,6 +53,7 @@ export class WarehouseBody extends Component {
                 <img
                   src={deleteIcon}
                   alt="Delete-Icon"
+                  id="row5"
                   onClick={() => {
                     this.setState({ show: true });
                   }}
