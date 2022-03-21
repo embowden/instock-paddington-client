@@ -30,7 +30,9 @@ export class WarehouseLabels extends Component {
               </div>
             </div>
             <div className="table-row__column--3">
-              <div className="row-5 label">ACTIONS:</div>
+              <div className="row-5 label" id="row5">
+                ACTIONS:
+              </div>
             </div>
           </div>
         </div>

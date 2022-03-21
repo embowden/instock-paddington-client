@@ -10,6 +10,7 @@
   align-items: center;
 }
 .summary__left,
+.summary__left--details,
 .summary__right {
   width: 25%;
 }
@@ -32,14 +33,16 @@
     width: 100%;
     justify-content: space-between;
     align-items: center;
-    border-bottom: 1px solid #bdc5d5;
+    border-bottom: 1px solid $secondary-mid;
   }
-  &__left {
+  &__left,
+  &__left--details {
     padding-left: 40px;
     width: 70%;
   }
   &__middle {
-    border-right: 1px solid #bdc5d5;
+    border-right: 1px solid $secondary-mid;
+    margin-bottom: 1rem;
   }
   &__right {
     justify-content: space-between;
@@ -70,7 +73,8 @@
     &__header {
       padding-left: 24px;
     }
-    &__left {
+    &__left,
+    &__left--details {
       justify-content: flex-start;
       padding-left: 24px;
     }
@@ -90,7 +94,13 @@
   .summary__header {
     padding-left: 32px;
   }
+  .summary__left--details {
+    width: 50%;
+  }
 }
 
 @include breakpoints.large {
+  .summary__left--details {
+    width: 50%;
+  }
 }

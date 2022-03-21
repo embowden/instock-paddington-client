@@ -4,6 +4,8 @@
 
 .table {
   background-color: white;
+  border-radius: $card-border;
+  box-shadow: $card-shadow;
   list-style: none;
   font-size: 14px;
   a,
@@ -31,7 +33,7 @@
   border-radius: 50px;
   width: 81px;
   height: 38px;
-  background-color: #2e66e5;
+  background-color: $primary-mid;
   color: white;
   display: flex;
   justify-content: space-evenly;
@@ -66,7 +68,7 @@
 }
 
 .blue-button {
-  background-color: #2e66e5;
+  background-color: $primary-mid;
   color: white;
   display: flex;
   align-items: center;
@@ -81,7 +83,7 @@
 }
 
 #title {
-  color: #5c667e;
+  color: $secondary-dark;
 }
 
 .blue-button {
@@ -91,7 +93,7 @@
 .table-row {
   height: 3rem;
   &__header {
-    background-color: #f7f8f9;
+    background-color: $bg-light;
   }
 }
 
@@ -123,7 +125,7 @@
 }
 
 .table-row__column--indiviual {
-  border-top: 1px #bdc5d5 solid;
+  border-top: 1px $secondary-mid solid;
 }
 
 .table-row__column--indiviual,
@@ -150,7 +152,7 @@
 }
 
 .row-1 {
-  color: #2e65e5;
+  color: $primary-mid;
 }
 
 #l-page-header {
@@ -234,16 +236,12 @@
     border-radius: 100px;
     width: 36px;
     height: 36px;
-    background-color: #2e66e5;
+    background-color: $primary-mid;
     color: white;
     display: flex;
     justify-content: space-evenly;
     padding: 0;
     margin-left: 3rem;
-  }
-
-  .edit-icon {
-    filter: brightness(100);
   }
 
   #non-mobile {
@@ -364,11 +362,6 @@
   .table-row__column--indiviual {
     height: 76px;
   }
-
-  // .row-1,
-  // .row-2 {
-  //   padding-left: 40px;
-  // }
 }
 
 ///-----Animations----///
