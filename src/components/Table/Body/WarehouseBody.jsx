@@ -7,15 +7,12 @@ import editIcon from "../../../assets/icons/edit-24px.svg";
 import deleteIcon from "../../../assets/icons/delete-outline-24px.svg";
 
 export class WarehouseBody extends Component {
-  // warehouseData = this.props.warehouses;
   state = {
     show: false,
     currentID: this.props.warehouses.id,
   };
 
   render() {
-    // console.log(this.state.currentID);
-
     return (
       <>
         <div className="table-row__column">

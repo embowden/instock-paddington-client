@@ -7,11 +7,6 @@ import editIcon from "../../../assets/icons/edit-24px.svg";
 import backArrow from "../../../assets/icons/arrow-back-24px.svg";
 
 export class SingleInventoryHeader extends Component {
-  // inventoryData = this.props.inventories;
-  // state = {
-  //   show: false,
-  //   currentID: this.props.inventories.id,
-  // };
   render() {
     return (
       <>
@@ -33,7 +28,6 @@ export class SingleInventoryHeader extends Component {
                 <p id="non-mobile">Edit</p>
               </div>
             </Link>
-            {/* <EditButton /> */}
           </div>
         </div>
         <div className="divider"></div>
