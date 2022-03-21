@@ -10,7 +10,7 @@ export default class AddNewInventory extends Component {
     itemName: null,
     description: null,
     category: null,
-    status: true,
+    status: null,
     quantity: null,
     warehouse: null,
     formValid: true,
@@ -32,8 +32,29 @@ export default class AddNewInventory extends Component {
   }
 
   handleChange = (event) => {
+    if (
+      event.target.name === "status" &&
+      event.target.value === "Out Of Stock"
+    ) {
+      this.setState({
+        quantity: 0,
+      });
+    }
     this.setState({
       [event.target.name]: event.target.value,
+    });
+  };
+
+  resetState = () => {
+    this.setState({
+      itemName: null,
+      description: null,
+      category: null,
+      status: null,
+      quantity: null,
+      warehouse: null,
+      formValid: true,
+      warehouseData: null,
     });
   };
 
@@ -43,8 +64,9 @@ export default class AddNewInventory extends Component {
       !this.state.description ||
       !this.state.category ||
       !this.state.status ||
-      !this.state.quantity ||
-      !this.state.warehouse
+      !this.state.warehouse ||
+      (this.state.quantity <= 0 && this.state.status === "In Stock") ||
+      (this.state.quantity > 0 && this.state.status === "Out Of Stock")
     ) {
       return false;
     }
@@ -70,12 +92,12 @@ export default class AddNewInventory extends Component {
           description: event.target.description.value,
           category: event.target.category.value,
           status: event.target.status.value,
-          quantity: event.target.quantity.value,
+          quantity: String(this.state.quantity),
         })
-        .then(function (response) {
-          event.target.reset();
-          alert(`Item added successfully`);
+        .then((response) => {
           console.log(response);
+          event.target.reset();
+          this.resetState();
         });
     } else {
       this.setState({
@@ -88,7 +110,7 @@ export default class AddNewInventory extends Component {
     return (
       <div className="add-inventory">
         <h1 className="add-inventory__header">
-          <Link to={"/inventory"} className="add-warehouse__back">
+          <Link to={"/inventory"} className="add-inventory__back">
             <img src={arrow} alt="" />
           </Link>
           Add New Inventory Item
@@ -113,7 +135,7 @@ export default class AddNewInventory extends Component {
                 name="itemName"
               />
               {!this.state.itemName && !this.state.formValid && (
-                <ValidationMessage />
+                <ValidationMessage message={"Item Name Required"} />
               )}
 
               <label>Description</label>
@@ -128,7 +150,7 @@ export default class AddNewInventory extends Component {
                 name="description"
               />
               {!this.state.description && !this.state.formValid && (
-                <ValidationMessage />
+                <ValidationMessage message={"Description Required"} />
               )}
 
               <label>Category</label>
@@ -146,14 +168,14 @@ export default class AddNewInventory extends Component {
                 <option value="DEFAULT" disabled>
                   Please select
                 </option>
-                <option value="Gealth">Health</option>
+                <option value="Health">Health</option>
                 <option value="Accessories">Accessories</option>
                 <option value="Apparel">Apparel</option>
                 <option value="Gear">Gear</option>
                 <option value="Electronics">Electronics</option>
               </select>
               {!this.state.category && !this.state.formValid && (
-                <ValidationMessage />
+                <ValidationMessage message={"Category Required"} />
               )}
             </div>
 
@@ -163,29 +185,45 @@ export default class AddNewInventory extends Component {
               </h2>
               <label>Status</label>
               <fieldset className="add-inventory__in-stock" id="status">
-                <input type="radio" value="In Stock" name="status" />
+                <input
+                  onChange={this.handleChange}
+                  type="radio"
+                  value="In Stock"
+                  name="status"
+                />
                 <label>In Stock</label>
-                <input type="radio" value="Out Of Stock" name="status" />
+                <input
+                  onChange={this.handleChange}
+                  type="radio"
+                  value="Out Of Stock"
+                  name="status"
+                />
                 <label>Out of Stock</label>
               </fieldset>
 
-              {!this.state.warehouse && !this.state.formValid && (
-                <ValidationMessage />
-              )}
-              <label>Quantity</label>
-              <input
-                onChange={this.handleChange}
-                className={`${
-                  !this.state.quantity && !this.state.formValid
-                    ? "add-inventory__quantity add-inventory__input--missing"
-                    : "add-inventory__quantity add-inventory__input"
-                }`}
-                name="quantity"
-                type="number"
-                placeholder="0"
-              />
-              {!this.state.quantity && !this.state.formValid && (
-                <ValidationMessage />
+              {this.state.status === "In Stock" &&
+                this.state.quantity === 0 &&
+                !this.state.formValid && (
+                  <ValidationMessage message={"Stock Status Required"} />
+                )}
+              {this.state.status !== "Out Of Stock" && (
+                <>
+                  <label>Quantity</label>
+                  <input
+                    onChange={this.handleChange}
+                    className={`${
+                      !this.state.quantity && !this.state.formValid
+                        ? "add-inventory__quantity add-inventory__input--missing"
+                        : "add-inventory__quantity add-inventory__input"
+                    }`}
+                    name="quantity"
+                    type="number"
+                    placeholder="0"
+                  />
+                  {!this.state.quantity && !this.state.formValid && (
+                    <ValidationMessage message={"Quantity Required"} />
+                  )}
+                </>
               )}
               <label>Warehouse</label>
               <select
@@ -201,8 +239,7 @@ export default class AddNewInventory extends Component {
                 <option value="DEFAULT" disabled>
                   Please select
                 </option>
-                (//*This maps through videos and returns names for each, then
-                asigns to form option)
+
                 {this.state.warehouseData &&
                   this.state.warehouseData.map((warehouse) => {
                     return (
@@ -214,16 +251,16 @@ export default class AddNewInventory extends Component {
                   })}
               </select>
               {!this.state.category && !this.state.formValid && (
-                <ValidationMessage />
+                <ValidationMessage message={"Warehouse Required"} />
               )}
             </div>
           </div>
 
-          <div className="add-warehouse__buttons">
-            <button type="reset" className="add-warehouse__cancel">
-              Cancel
-            </button>
-            <button type="submit" className="add-warehouse__add">
+          <div className="add-inventory__buttons">
+            <Link className="add-inventory__cancel-link" to="/inventory">
+              <button className="add-inventory__cancel">Cancel</button>
+            </Link>
+            <button type="submit" className="add-inventory__add">
               +Add Item
             </button>
           </div>

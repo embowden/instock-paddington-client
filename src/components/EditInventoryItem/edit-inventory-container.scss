@@ -4,35 +4,42 @@
 
 .edit-inventory {
   background-color: white;
-  padding: 0 24px 0 24px;
   max-width: 1020px;
-  margin-left: auto;
-  margin-right: auto;
+  box-shadow: $card-shadow;
+  margin: 0 16px 0 16px;
+
+  @include medium {
+    margin-left: auto;
+    margin-right: auto;
+  }
 
   &__header {
-    line-height: 2;
     border-bottom: 1px solid $secondary-mid;
-    padding-top: 2rem;
-    padding-bottom: 2rem;
+    line-height: 2.5;
+    padding: 0 24px 0 24px;
   }
 
   &__form {
     display: flex;
     flex-direction: column;
     @include medium {
-      gap: 56px;
-    }
-  }
-
-  &__form-elements {
-    @include medium {
-      display: flex;
       justify-content: space-between;
     }
   }
 
+  &__form-elements {
+    padding: 0 24px 0 24px;
+    @include medium {
+      display: flex;
+      justify-content: space-between;
+      margin: 1rem 0 1rem 0;
+    }
+  }
   &__back {
     padding-right: 16px;
+    @include medium {
+      padding-left: 32px;
+    }
   }
 
   &__input {
@@ -102,7 +109,7 @@
   &__buttons {
     display: flex;
     align-items: center;
-    padding: 16px 0 16px 0;
+    padding: 16px;
     @include medium {
       justify-content: flex-end;
     }

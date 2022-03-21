@@ -7,11 +7,11 @@ import "./edit-inventory-container.scss";
 
 export default class EditInventoryItem extends Component {
   state = {
-    itemName: null,
-    description: null,
-    category: null,
-    status: true,
-    quantity: 0,
+    itemName: "",
+    description: "",
+    category: "",
+    status: "",
+    quantity: "",
     warehouse: null,
     formValid: true,
     warehouseData: null,
@@ -22,12 +22,11 @@ export default class EditInventoryItem extends Component {
       .get(`http://localhost:8080/inventory/${this.props.match.params.id}`)
       .then((response) => {
         console.log(response);
-        let boolStatus = this.getItemStatus(response);
         this.setState({
           itemName: response.data.itemName,
           description: response.data.description,
           category: response.data.category,
-          status: boolStatus,
+          status: response.data.status,
           quantity: response.data.quantity,
           warehouse: response.data.warehouseName,
         });
@@ -35,14 +34,6 @@ export default class EditInventoryItem extends Component {
       .catch((error) => {
         console.log(error);
       });
-  };
-
-  getItemStatus = (response) => {
-    if (response.data.status === "In Stock") {
-      return "true";
-    } else {
-      return "false";
-    }
   };
 
   getWarehouseList = () => {
@@ -61,11 +52,6 @@ export default class EditInventoryItem extends Component {
 
   updateItem = (event) => {
     if (this.isFormValid()) {
-      console.log("in event handler");
-      let statusMessage =
-        event.target.status.value === "true" ? "In Stock" : "Out of Stock";
-      console.log(statusMessage);
-      console.log(event.target.status.value);
       let nameAndId = event.target.warehouse.value.split(" "); //*Takes value target from warehouse drop down
       let warehouseID = String(nameAndId.slice(-1)[0]); //*grabs last item in array, always ID
       let warehouseNameArr = nameAndId.filter(
@@ -81,13 +67,13 @@ export default class EditInventoryItem extends Component {
             itemName: event.target.itemName.value,
             description: event.target.description.value,
             category: event.target.category.value,
-            status: statusMessage,
-            quantity: this.state.quantity,
+            status: event.target.status.value,
+            quantity: String(this.state.quantity),
           }
         )
-        .then(function (response) {
+        .then((response) => {
           event.target.reset();
-          alert(`Item updated successfully`);
+          this.getInventoryItem();
           console.log(response);
         });
     } else {
@@ -102,7 +88,8 @@ export default class EditInventoryItem extends Component {
     if (
       this.state.itemName === "" ||
       this.state.description === "" ||
-      (this.state.quantity > 0 && this.state.status === "false")
+      (this.state.quantity <= 0 && this.state.status === "In Stock") ||
+      (this.state.quantity > 0 && this.state.status === "Out Of Stock")
     ) {
       return false;
     }
@@ -116,14 +103,17 @@ export default class EditInventoryItem extends Component {
   }
 
   handleChange = (event) => {
+    if (
+      event.target.name === "status" &&
+      event.target.value === "Out Of Stock"
+    ) {
+      this.setState({
+        quantity: 0,
+      });
+    }
     this.setState({
       [event.target.name]: event.target.value,
     });
-    if (this.state.status === "false") {
-      this.setState({
-        quantity: "0",
-      });
-    }
   };
 
   handleSubmit = (event) => {
@@ -213,25 +203,28 @@ export default class EditInventoryItem extends Component {
                 <input
                   onChange={this.handleChange}
                   type="radio"
-                  value="true"
+                  value="In Stock"
                   name="status"
-                  checked={this.state.status === "true"}
+                  checked={this.state.status === "In Stock"}
                 />
 
                 <label>In Stock</label>
                 <input
                   onChange={this.handleChange}
                   type="radio"
-                  value="false"
+                  value="Out Of Stock"
                   name="status"
-                  checked={this.state.status === "false"}
+                  checked={this.state.status === "Out Of Stock"}
                 />
                 <label>Out of Stock</label>
               </fieldset>
-              {!this.state.warehouse && !this.state.formValid && (
-                <ValidationMessage message={"Status Required"} />
-              )}
-              {this.state.status === "true" && (
+              {this.state.status === "In Stock" &&
+                this.state.quantity === 0 &&
+                !this.state.formValid && (
+                  <ValidationMessage message={"Stock Status Required"} />
+                )}
+
+              {this.state.status !== "Out Of Stock" && (
                 <>
                   <label>Quantity</label>
                   <input
