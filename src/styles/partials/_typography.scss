@@ -97,6 +97,7 @@ button {
 }
 
 input {
+  font-family: titillium web;
   border-radius: 1.25rem;
   padding: 0 1rem;
   height: 2.25rem;
@@ -106,6 +107,10 @@ input {
   &::placeholder {
     color: $secondary-dark;
   }
+}
+
+select {
+  font-family: titillium web;
 }
 
 a:link,
