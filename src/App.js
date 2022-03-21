@@ -1,4 +1,15 @@
-import "./App.css";
+import { Route, Switch, Redirect } from "react-router-dom";
+import "./App.scss";
+import Warehouses from "./components/Warehouses/Warehouses";
+import WarehouseDetails from "./components/WarehouseDetails/WarehouseDetails";
+import EditWarehouse from "./components/EditWarehouse/EditWarehouse";
+import AddNewWarehouse from "./components/AddNewWarehouse/AddNewWarehouse";
+import Inventory from "./components/Inventory/Inventory";
+import InventoryItemDetails from "./components/InventoryItemDetails/InventoryItemDetails";
+import EditInventoryItem from "./components/EditInventoryItem/EditInventoryItem";
+import AddNewInventory from "./components/AddNewInventory/AddNewInventory";
+import Header from "./components/Header/Header";
+import { Footer } from "./components/Footer/Footer";
 
 function App() {
   return (
