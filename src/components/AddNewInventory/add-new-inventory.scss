@@ -60,6 +60,13 @@
   }
 
   select {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    background: transparent;
+    background-image: url("../../assets/icons/arrow-drop-down-24px.svg");
+    background-position-x: 98%;
+    background-position-y: 50%;
+    background-repeat: no-repeat;
     border-radius: 1.25rem;
     padding: 0 1rem;
     height: 2.25rem;
