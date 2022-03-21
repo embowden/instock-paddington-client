@@ -6,7 +6,7 @@ export class Arrow extends Component {
   render() {
     return (
       <>
-        <img alt=">" src={chevron} className="arrow" />
+        <img alt="chevron-right" src={chevron} className="arrow" />
       </>
     );
   }
