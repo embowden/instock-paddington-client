@@ -7,14 +7,10 @@ import editIcon from "../../../assets/icons/edit-24px.svg";
 import backArrow from "../../../assets/icons/arrow-back-24px.svg";
 
 export class WarehouseDetailsHeader extends Component {
-
   render() {
     const currWarehouse = this.props.warehouses.find(
       (warehouse) => warehouse.id === this.props.match.params.id
     );
-
-    console.log(this.props.match.params.id);
-    console.log(currWarehouse);
 
     return (
       <>

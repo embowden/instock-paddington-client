@@ -6,11 +6,6 @@ import searchIcon from "../../../assets/icons/search-24px.svg";
 import SearchButton from "../Buttons/SearchButton";
 
 export class InventoryHeader extends Component {
-  // inventoryData = this.props.inventories;
-  // state = {
-  //   show: false,
-  //   currentID: this.props.inventories.id,
-  // };
   render() {
     return (
       <>

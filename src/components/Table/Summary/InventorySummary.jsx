@@ -4,11 +4,6 @@ import "../table.scss";
 import "../Header/inventoryheader.scss";
 
 export class InventorySummary extends Component {
-  // inventoryData = this.props.inventories;
-  // state = {
-  //   show: false,
-  //   currentID: this.props.inventories.id,
-  // };
   render() {
     return (
       <>
@@ -28,7 +23,6 @@ export class InventorySummary extends Component {
                 <p id="title">Contact Name</p> <p> contactname</p>
                 <p> contactposition</p>
               </div>
-              {/* {this.props.warehouses.contact.name} */}
             </div>{" "}
             <div className="summary__right ">
               <div>
