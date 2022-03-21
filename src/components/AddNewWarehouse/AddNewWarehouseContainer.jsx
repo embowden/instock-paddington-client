@@ -4,6 +4,8 @@ import "./add-new-warehouse.scss";
 import axios from "axios";
 import arrow from "../../assets/icons/arrow-back-24px.svg";
 import ValidationMessage from "../../components/ValidationMessage/ValidationMessage";
+import Swal from "sweetalert2/dist/sweetalert2.js";
+import "sweetalert2/src/sweetalert2.scss";
 
 export default class AddNewWarehouse extends Component {
   state = {
@@ -74,6 +76,12 @@ export default class AddNewWarehouse extends Component {
         })
         .then((response) => {
           this.props.history.push("/warehouses");
+          Swal.fire({
+            icon: "success",
+            title: "Success!",
+            text: "New warehouse has been added!",
+            confirmButtonColor: "#2e66e5",
+          });
         });
       this.setState({ formValid: false });
     } else {

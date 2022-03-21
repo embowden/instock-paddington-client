@@ -5,6 +5,7 @@
 .edit-warehouse {
   background-color: white;
   box-shadow: $card-shadow;
+  border-radius: $card-border;
   margin: 0 1rem;
   @include medium {
     margin: 0 2rem;
@@ -60,12 +61,12 @@
 
   &__input--missing {
     margin-bottom: 1rem;
-    border: 1px solid red;
+    border: 0.0625rem solid red;
   }
 
   &__section-header {
     padding: 2rem 0 2rem 0;
-    border-top: 1px solid $secondary-mid;
+    border-top: 0.0625rem solid $secondary-mid;
     @include medium {
       border-top: none;
     }
@@ -78,13 +79,13 @@
 
     @include medium {
       width: 50%;
-      padding: 0 32px 0 32px;
+      padding: 0 2rem;
     }
   }
 
   &__warehouse-info {
     @include medium {
-      border-right: 1px solid $secondary-mid;
+      border-right: 0.0625rem solid $secondary-mid;
     }
   }
 

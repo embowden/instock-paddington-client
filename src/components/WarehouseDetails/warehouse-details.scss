@@ -32,21 +32,21 @@
     width: 100%;
     justify-content: space-between;
     align-items: center;
-    border-bottom: 1px solid $secondary-mid;
+    border-bottom: 0.0625rem solid $secondary-mid;
   }
   &__left {
-    padding-left: 40px;
+    padding-left: 2.5rem;
     width: 70%;
   }
   &__middle {
-    border-right: 1px solid $secondary-mid;
+    border-right: 0.0625rem solid $secondary-mid;
   }
   &__right {
     justify-content: space-between;
     align-items: left;
 
     width: 60%;
-    padding-left: 40px;
+    padding-left: 2.5rem;
   }
 }
 
@@ -58,28 +58,28 @@
   .summary {
     background-color: white;
     flex-direction: column;
-    height: 196px;
+    height: 12.25rem;
     justify-content: space-around;
     align-items: center;
     margin-bottom: 1rem;
     display: block;
     &__list {
-      padding-left: 24px;
+      padding-left: 1.5rem;
       width: 100%;
     }
     &__header {
-      padding-left: 24px;
+      padding-left: 1.5rem;
     }
     &__left {
       justify-content: flex-start;
-      padding-left: 24px;
+      padding-left: 1.5rem;
     }
   }
 
   .summary__right {
     justify-content: center;
-    padding-left: 24px;
-    padding-right: 24px;
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
   }
   .mobile-divider {
     padding-top: 1rem;
@@ -88,7 +88,7 @@
 
 @include breakpoints.medium {
   .summary__header {
-    padding-left: 32px;
+    padding-left: 2rem;
   }
   .summary__left {
     width: 50%;
@@ -104,14 +104,14 @@
 .instock {
   color: #158463;
   background-color: rgb(21, 132, 99, 0.07);
-  border-radius: 50px;
+  border-radius: 3.125rem;
   padding-left: 0.5rem;
   padding-right: 0.5rem;
 }
 .no-stock {
   color: #c94515;
   background-color: rgb(201, 69, 21, 0.07);
-  border-radius: 50px;
+  border-radius: 3.125rem;
   padding-left: 0.5rem;
   padding-right: 0.5rem;
 }

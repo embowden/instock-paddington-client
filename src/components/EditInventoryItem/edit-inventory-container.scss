@@ -4,20 +4,18 @@
 
 .edit-inventory {
   background-color: white;
-  // max-width: 1020px;
   box-shadow: $card-shadow;
-  margin: 0 16px 0 16px;
+  border-radius: $card-border;
+  margin: 0 1rem;
 
   @include medium {
-    // margin-left: auto;
-    // margin-right: auto;
-    margin: 0 32px;
+    margin: 0 2rem;
   }
 
   &__header {
-    border-bottom: 1px solid $secondary-mid;
+    border-bottom: 0.0625rem solid $secondary-mid;
     line-height: 2.5;
-    padding: 0 24px 0 24px;
+    padding: 0 1.5rem;
     @include medium {
       padding: 0;
     }
@@ -32,24 +30,24 @@
   }
 
   &__form-elements {
-    padding: 0 24px 0 24px;
+    padding: 0 1.5rem;
     @include medium {
       display: flex;
       justify-content: space-between;
-      margin: 1rem 0 1rem 0;
+      margin: 1rem 0;
       padding: 0;
     }
   }
   &__back {
-    padding-right: 16px;
+    padding-right: 1rem;
     @include medium {
-      padding-left: 32px;
+      padding-left: 2rem;
     }
   }
 
   &__input {
     margin-bottom: 1rem;
-    border: 1px solid $secondary-mid;
+    border: 0.0625rem solid $secondary-mid;
     resize: none;
   }
 
@@ -61,33 +59,33 @@
     background-position-x: 98%;
     background-position-y: 50%;
     background-repeat: no-repeat;
-    border-radius: 20px;
-    padding: 0 16px;
-    height: 36px;
+    border-radius: 1.25rem;
+    padding: 0 1rem;
+    height: 2.25rem;
     @include medium {
-      height: 38px;
+      height: 2.375rem;
     }
   }
 
   &__quantity {
-    width: 70px;
+    width: 4.375rem;
   }
 
   textarea {
     font-family: titillium web;
-    border-radius: 20px;
-    padding: 16px 16px;
-    height: 120px;
+    border-radius: 1.25rem;
+    padding: 1rem 1rem;
+    height: 7.5rem;
   }
 
   &__input--missing {
     margin-bottom: 1rem;
-    border: 1px solid red;
+    border: 0.0625rem solid red;
   }
 
   &__section-header {
     padding: 2rem 0 2rem 0;
-    border-top: 1px solid $secondary-mid;
+    border-top: 0.0625rem solid $secondary-mid;
     @include medium {
       border-top: none;
     }
@@ -100,7 +98,7 @@
 
     @include medium {
       width: 50%;
-      padding: 0 32px 0 32px;
+      padding: 0 2rem;
     }
   }
 
@@ -114,14 +112,14 @@
 
   &__item-info {
     @include medium {
-      border-right: 1px solid $secondary-mid;
+      border-right: 0.0625rem solid $secondary-mid;
     }
   }
 
   &__buttons {
     display: flex;
     align-items: center;
-    padding: 16px;
+    padding: 1rem;
     background-color: $bg-light;
     justify-content: space-between;
     @include medium {
@@ -136,20 +134,20 @@
     padding: 0;
     @include medium {
       width: auto;
-      padding: 8px 16px 8px 16px;
+      padding: 0.5rem 1rem;
     }
   }
 
   &__cancel {
-    margin-right: 16px;
-    border: 1px solid $secondary-mid;
+    margin-right: 1rem;
+    border: 0.0625rem solid $secondary-mid;
     background-color: white;
     color: $secondary-dark;
     width: 100%;
   }
 
   &__cancel-link {
-    margin-right: 16px;
+    margin-right: 1rem;
   }
 
   &__add {
@@ -158,7 +156,7 @@
     border: 0;
     max-width: 50%;
     @include medium {
-      margin-right: 40px;
+      margin-right: 2.5rem;
     }
   }
 }

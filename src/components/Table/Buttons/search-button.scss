@@ -7,24 +7,24 @@
 }
 .search-button {
   background-color: white;
-  border: 1px solid black;
+  border: 0.0625rem solid black;
   display: flex;
   align-items: center;
   justify-content: space-between;
   display: flex;
   padding-left: 1rem;
   height: 3rem;
-  border-radius: 50px;
+  border-radius: 3.125rem;
   margin-right: 1rem;
 }
 
 @include breakpoints.small {
   .search-button {
-    height: 36px;
-    border-radius: 50px;
-    font-size: 13px;
-    margin-left: 24px;
-    margin-right: 24px;
+    height: 2.25rem;
+    border-radius: 3.125rem;
+    font-size: 0.8125rem;
+    margin-left: 1.5rem;
+    margin-right: 1.5rem;
     width: 100%;
     margin-bottom: 1rem;
   }
@@ -32,8 +32,8 @@
 
 @include breakpoints.medium {
   .search-button {
-    width: 185px;
-    height: 38px;
+    width: 11.5625rem;
+    height: 2.375rem;
   }
 
   #mobile-only {
@@ -43,7 +43,7 @@
 
 @include breakpoints.large {
   .search-button {
-    width: 274px;
-    height: 38px;
+    width: 17.125rem;
+    height: 2.375rem;
   }
 }
