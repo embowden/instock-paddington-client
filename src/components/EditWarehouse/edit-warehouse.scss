@@ -5,6 +5,7 @@
 .edit-warehouse {
   background-color: white;
   box-shadow: $card-shadow;
+  border-radius: $card-border;
   margin: 0 1rem;
   @include medium {
     margin: 0 2rem;

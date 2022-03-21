@@ -6,6 +6,7 @@
   background-color: white;
   max-width: 1020px;
   box-shadow: $card-shadow;
+  border-radius: $card-border;
   margin: 0 16px 0 16px;
 
   @include medium {
