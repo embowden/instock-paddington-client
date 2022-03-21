@@ -5,9 +5,6 @@ import InventoryBody from "./Body/InventoryBody";
 import "./table.scss";
 
 const InventoryTable = ({ inventories, getData }) => {
-  // inventories.map((inventory) => {
-  //   return <InventoryHeader inventories={inventories} />;
-  // });
 
   return (
     <>
