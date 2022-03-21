@@ -4,14 +4,14 @@
 
 .header {
   background-color: $bg-dark;
-  height: 200px;
-  padding: 0 16px;
+  height: 12.5rem;
+  padding: 0 1rem;
   @include medium {
-    height: 186px;
-    padding: 0 32px;
+    height: 11.625rem;
+    padding: 0 2rem;
   }
   @include large {
-    padding: 0 120px;
+    padding: 0 7.5rem;
   }
 
   &__container {
@@ -29,9 +29,9 @@
   }
 
   &__logo {
-    padding: 16px 0;
+    padding: 1rem 0;
     @include medium {
-      padding: 32px 0;
+      padding: 2rem 0;
     }
   }
 
@@ -39,7 +39,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    padding-bottom: 24px;
+    padding-bottom: 1.5rem;
     @include medium {
       padding-bottom: 0;
     }
@@ -49,11 +49,11 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    border-radius: 20px;
-    height: 36px;
-    padding: 0 16px;
+    border-radius: 1.25rem;
+    height: 2.25rem;
+    padding: 0 1rem;
     width: 100%;
-    margin-right: 16px;
+    margin-right: 1rem;
     background-color: transparent;
     color: $secondary-mid;
 
@@ -77,9 +77,9 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    border-radius: 20px;
-    height: 36px;
-    padding: 0 16px;
+    border-radius: 1.25rem;
+    height: 2.25rem;
+    padding: 0 1rem;
     width: 100%;
     background-color: transparent;
     color: $secondary-mid;
