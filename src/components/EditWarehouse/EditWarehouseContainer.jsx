@@ -43,27 +43,6 @@ export default class EditWarehouse extends Component {
 
   componentDidMount() {
     this.getWarehouseData();
-    // axios
-    //   .get(
-    //     `http://localhost:8080/warehouses/${this.props.match.params.warehouseId}`
-    //   )
-    //   .then((response) => {
-    //     console.log(response);
-    //     this.setState({
-    //       warehouseName: response.data.name,
-    //       streetAdress: response.data.address,
-    //       city: response.data.city,
-    //       country: response.data.country,
-    //       contactName: response.data.contact.name,
-    //       position: response.data.contact.position,
-    //       phoneNumber: response.data.contact.phone,
-    //       email: response.data.contact.email,
-    //     });
-    //   })
-    //   .catch((error) => {
-    //     console.log(error);
-    //   });
-    // I LEFT THIS HERE FOR YOU TO SEE BUT YOU CAN DELETE, ITS NOW IN THE FUNCTION ABOVE
   }
 
   handleCancel = () => {

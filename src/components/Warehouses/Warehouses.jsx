@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import "./warehouse.scss";
 import "../../styles/liftoff.scss";
 import axios from "axios";
 import WarehouseTable from "../Table/WarehouseTable";
@@ -25,7 +24,6 @@ export default class Warehouses extends Component {
 
   componentDidMount() {
     this.getAllWarehouse();
-    // this.getAllInventories();
   }
 
   render() {

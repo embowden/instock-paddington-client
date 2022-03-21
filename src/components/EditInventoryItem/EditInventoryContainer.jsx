@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { Link } from "react-router-dom";
 import axios from "axios";
 import arrow from "../../assets/icons/arrow-back-24px.svg";
 import ValidationMessage from "../../components/ValidationMessage/ValidationMessage";
@@ -125,14 +126,6 @@ export default class EditInventoryItem extends Component {
     }
   };
 
-  // handleQuantityState = () => {
-  //   if (this.state.status === "false") {
-  //     this.setState({
-  //       quantity: "0",
-  //     });
-  //   }
-  // };
-
   handleSubmit = (event) => {
     event.preventDefault();
     this.updateItem(event);
@@ -142,9 +135,9 @@ export default class EditInventoryItem extends Component {
     return (
       <div className="edit-inventory">
         <h1 className="edit-inventory__header">
-          <span className="edit-inventory__back">
+          <Link to={"/inventory"} className="edit-inventory__back">
             <img src={arrow} alt="" />
-          </span>
+          </Link>
           Edit Inventory Item
         </h1>
         <form
