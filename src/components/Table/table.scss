@@ -7,14 +7,14 @@
   border-radius: $card-border;
   box-shadow: $card-shadow;
   list-style: none;
-  font-size: 14px;
+  font-size: 0.875rem;
   a,
   a:visited,
   a:hover,
   a:active {
     cursor: pointer;
     color: inherit;
-    font-size: 14px;
+    font-size: 0.875rem;
   }
 }
 
@@ -30,15 +30,15 @@
 }
 
 .edit-button {
-  border-radius: 50px;
-  width: 81px;
-  height: 38px;
+  border-radius: 3.125rem;
+  width: 5.0625rem;
+  height: 2.375rem;
   background-color: $primary-mid;
   color: white;
   display: flex;
   justify-content: space-evenly;
   align-items: center;
-  margin-right: 40px;
+  margin-right: 2.5rem;
   padding-right: 0.5rem;
 }
 
@@ -79,7 +79,7 @@
 }
 
 .backArrow {
-  margin-right: 12px;
+  margin-right: 0.75rem;
 }
 
 #title {
@@ -87,7 +87,7 @@
 }
 
 .blue-button {
-  border-radius: 50px;
+  border-radius: 3.125rem;
 }
 
 .table-row {
@@ -117,7 +117,7 @@
 }
 .table-row__column--3 {
   display: flex;
-  padding-right: 43px;
+  padding-right: 2.6875rem;
   flex-direction: row;
   align-items: center;
   align-content: center;
@@ -125,7 +125,7 @@
 }
 
 .table-row__column--indiviual {
-  border-top: 1px $secondary-mid solid;
+  border-top: 0.0625rem $secondary-mid solid;
 }
 
 .table-row__column--indiviual,
@@ -139,7 +139,6 @@
 
 .table-row__column--indiviual:hover {
   background-color: rgba(46, 102, 229, 0.07);
-  //make 7%
 }
 
 ////Columns
@@ -171,7 +170,7 @@
 }
 
 .row-1 {
-  padding-left: 40px;
+  padding-left: 2.5rem;
 }
 
 .row-5 {
@@ -192,16 +191,16 @@
   .table-header {
     background-color: white;
     flex-direction: column;
-    height: 196px;
+    height: 12.25rem;
     justify-content: space-around;
     align-items: center;
     margin-bottom: 1rem;
     &__list {
-      padding-left: 24px;
+      padding-left: 1.5rem;
       width: 100%;
     }
     &__header {
-      padding-left: 24px;
+      padding-left: 1.5rem;
     }
     &__left {
       justify-content: flex-start;
@@ -223,19 +222,19 @@
   }
 
   .blue-button {
-    height: 36px;
-    border-radius: 50px;
-    font-size: 13px;
-    margin-left: 24px;
-    margin-right: 24px;
+    height: 2.25rem;
+    border-radius: 3.125rem;
+    font-size: 0.8125rem;
+    margin-left: 1.5rem;
+    margin-right: 1.5rem;
     width: 100%;
     margin-bottom: 1rem;
   }
 
   .edit-button {
-    border-radius: 100px;
-    width: 36px;
-    height: 36px;
+    border-radius: 6.25rem;
+    width: 2.25rem;
+    height: 2.25rem;
     background-color: $primary-mid;
     color: white;
     display: flex;
@@ -261,12 +260,12 @@
   }
 
   .table {
-    margin-left: 16px;
-    margin-right: 16px;
+    margin-left: 1rem;
+    margin-right: 1rem;
   }
 
   .table-row__header {
-    height: 40px;
+    height: 2.5rem;
   }
 
   .table-row__column--indiviual {
@@ -285,7 +284,7 @@
   .table-row__column--2 {
     flex-direction: column;
     align-items: flex-start;
-    padding-left: 24px;
+    padding-left: 1.5rem;
   }
 
   .row-1,
@@ -298,8 +297,8 @@
   }
   .row-5 {
     display: flex;
-    padding-left: 28px;
-    padding-right: 28px;
+    padding-left: 1.75rem;
+    padding-right: 1.75rem;
     justify-content: space-between;
     flex-direction: row;
   }
@@ -312,26 +311,26 @@
   }
 
   .blue-button {
-    width: 168px;
-    height: 38px;
-    margin-right: 32px;
+    width: 10.5rem;
+    height: 2.375rem;
+    margin-right: 2rem;
   }
   .table {
-    margin-left: 32px;
-    margin-right: 32px;
+    margin-left: 2rem;
+    margin-right: 2rem;
   }
 
   .table-header__header {
-    padding-left: 32px;
+    padding-left: 2rem;
     width: 25rem;
   }
 
   .table-row__header {
-    height: 40px;
+    height: 2.5rem;
   }
 
   .table-row__column--indiviual {
-    height: 76px;
+    height: 4.75rem;
   }
   .table-header__left {
     width: 100%;
@@ -343,25 +342,25 @@
 
 @include breakpoints.large {
   .blue-button {
-    width: 168px;
-    height: 38px;
-    margin-right: 40px;
+    width: 10.5rem;
+    height: 2.375rem;
+    margin-right: 2.5rem;
   }
 
   .table {
-    margin-left: 130px;
-    margin-right: 130px;
+    margin-left: 8.125rem;
+    margin-right: 8.125rem;
   }
 
   .table-row__header {
-    height: 40px;
+    height: 2.5rem;
     &__header {
-      padding-left: 40px;
+      padding-left: 2.5rem;
     }
   }
 
   .table-row__column--indiviual {
-    height: 76px;
+    height: 4.75rem;
   }
 }
 
@@ -373,5 +372,5 @@
 
 #flex:hover > .arrow {
   transition: transform 500ms;
-  transform: translateX(4px);
+  transform: translateX(0.25rem);
 }
