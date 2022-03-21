@@ -4,19 +4,26 @@
 
 .add-inventory {
   background-color: white;
-  max-width: 1020px;
   box-shadow: $card-shadow;
-  margin: 0 16px 0 16px;
-
+  margin: 0 1rem;
   @include medium {
-    margin-left: auto;
-    margin-right: auto;
+    margin: 0 2rem;
+  }
+  @include large {
+    margin: 0 7.5rem;
   }
 
   &__header {
-    border-bottom: 1px solid $secondary-mid;
+    border-bottom: 0.063rem solid $secondary-mid;
     line-height: 2.5;
-    padding: 0 24px 0 24px;
+    padding: 0 1.5rem;
+    @include medium {
+      padding: 0;
+      width: 100%;
+    }
+    @include large {
+      width: 100%;
+    }
   }
 
   &__form {
@@ -29,33 +36,34 @@
   }
 
   &__form-elements {
-    padding: 0 24px 0 24px;
+    padding: 0 1.5rem;
     @include medium {
       display: flex;
       justify-content: space-between;
-      margin: 1rem 0 1rem 0;
+      margin: 1rem 0;
+      padding: 0;
     }
   }
 
   &__back {
-    padding-right: 16px;
+    padding-right: 1rem;
     @include medium {
-      padding-left: 32px;
+      padding-left: 2rem;
     }
   }
 
   &__input {
     margin-bottom: 1rem;
-    border: 1px solid $secondary-mid;
+    border: 0.063rem solid $secondary-mid;
     resize: none;
   }
 
   select {
-    border-radius: 20px;
-    padding: 0 16px;
-    height: 36px;
+    border-radius: 1.25rem;
+    padding: 0 1rem;
+    height: 2.25rem;
     @include medium {
-      height: 38px;
+      height: 2.375rem;
     }
   }
 
@@ -65,19 +73,19 @@
 
   textarea {
     font-family: titillium web;
-    border-radius: 20px;
-    padding: 16px 16px;
-    height: 120px;
+    border-radius: 1.25rem;
+    padding: 1rem 1rem;
+    height: 7.5rem;
   }
 
   &__input--missing {
     margin-bottom: 1rem;
-    border: 1px solid red;
+    border: 0.063rem solid red;
     resize: none;
   }
 
   &__section-header {
-    border-top: 1px solid $secondary-mid;
+    border-top: 0.063rem solid $secondary-mid;
     line-height: 2.5;
     padding-bottom: 1rem;
     @include medium {
@@ -92,7 +100,7 @@
 
     @include medium {
       width: 50%;
-      padding: 0 32px 0 32px;
+      padding: 0 2rem;
     }
   }
 
@@ -106,14 +114,14 @@
 
   &__item-info {
     @include medium {
-      border-right: 1px solid $secondary-mid;
+      border-right: 0.063rem solid $secondary-mid;
     }
   }
 
   &__buttons {
     display: flex;
     align-items: center;
-    padding: 16px;
+    padding: 1rem;
     background-color: $bg-light;
     justify-content: space-between;
     @include medium {
@@ -128,20 +136,20 @@
     padding: 0;
     @include medium {
       width: auto;
-      padding: 8px 16px 8px 16px;
+      padding: 0.5rem 1rem;
     }
   }
 
   &__cancel {
-    margin-right: 16px;
-    border: 1px solid $secondary-mid;
+    margin-right: 1rem;
+    border: 0.063rem solid $secondary-mid;
     background-color: white;
     color: $secondary-dark;
     width: 100%;
   }
 
   &__cancel-link {
-    margin-right: 16px;
+    margin-right: 1rem;
   }
 
   &__add {
@@ -150,7 +158,7 @@
     border: 0;
     max-width: 50%;
     @include medium {
-      margin-right: 40px;
+      margin-right: 2.5rem;
     }
   }
 }
