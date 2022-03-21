@@ -6,7 +6,10 @@ export default class AddNewWarehouse extends Component {
   render() {
     return (
       <div className="liftoff">
-        <AddNewWarehouseContainer match={this.props.match} />
+        <AddNewWarehouseContainer
+          history={this.props.history}
+          match={this.props.match}
+        />
       </div>
     );
   }

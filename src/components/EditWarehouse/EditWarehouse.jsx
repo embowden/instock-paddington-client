@@ -6,7 +6,10 @@ export default class EditWarehouse extends Component {
   render() {
     return (
       <div className="liftoff">
-        <EditWarehouseContainer match={this.props.match} />
+        <EditWarehouseContainer
+          history={this.props.history}
+          match={this.props.match}
+        />
       </div>
     );
   }

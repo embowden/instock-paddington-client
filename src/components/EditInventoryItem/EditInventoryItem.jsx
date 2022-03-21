@@ -6,7 +6,10 @@ export default class EditInventoryItem extends Component {
   render() {
     return (
       <div className="liftoff">
-        <EditInventoryContainer match={this.props.match} />
+        <EditInventoryContainer
+          history={this.props.history}
+          match={this.props.match}
+        />
       </div>
     );
   }

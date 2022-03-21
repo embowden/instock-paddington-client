@@ -110,12 +110,14 @@
     display: flex;
     align-items: center;
     padding: 16px;
+    background-color: $bg-light;
+    justify-content: space-between;
     @include medium {
       justify-content: flex-end;
     }
   }
 
-  &__cancel,
+  &__cancel-link,
   &__add {
     width: 100%;
     word-wrap: keep-all;
@@ -131,11 +133,20 @@
     border: 1px solid $secondary-mid;
     background-color: white;
     color: $secondary-dark;
+    width: 100%;
+  }
+
+  &__cancel-link {
+    margin-right: 16px;
   }
 
   &__add {
     color: white;
     background-color: $primary-mid;
     border: 0;
+    max-width: 50%;
+    @include medium {
+      margin-right: 40px;
+    }
   }
 }

@@ -73,10 +73,7 @@ export default class AddNewWarehouse extends Component {
           },
         })
         .then((response) => {
-          event.target.reset();
-          alert(`Warehouse added successfully`);
-          console.log(response);
-          this.resetState();
+          this.props.history.push("/warehouses");
         });
       this.setState({ formValid: false });
     } else {
@@ -119,7 +116,7 @@ export default class AddNewWarehouse extends Component {
                 name="warehouseName"
               />
               {!this.state.warehouseName && !this.state.formValid && (
-                <ValidationMessage message={this.message} />
+                <ValidationMessage message={"Warehouse Name Required"} />
               )}
               <label>Street Adress</label>
               <input
@@ -133,7 +130,7 @@ export default class AddNewWarehouse extends Component {
                 name="streetAdress"
               />
               {!this.state.streetAdress && !this.state.formValid && (
-                <ValidationMessage message={this.message} />
+                <ValidationMessage message={"Street Address Required"} />
               )}
               <label>City</label>
               <input
@@ -147,7 +144,7 @@ export default class AddNewWarehouse extends Component {
                 name="city"
               />
               {!this.state.city && !this.state.formValid && (
-                <ValidationMessage message={this.message} />
+                <ValidationMessage message={"City Required"} />
               )}
               <label>Country</label>
               <input
@@ -161,7 +158,7 @@ export default class AddNewWarehouse extends Component {
                 name="country"
               />
               {!this.state.country && !this.state.formValid && (
-                <ValidationMessage message={this.message} />
+                <ValidationMessage message={"Country Required"} />
               )}
             </div>
 
@@ -179,7 +176,7 @@ export default class AddNewWarehouse extends Component {
                 name="contactName"
               />
               {!this.state.contactName && !this.state.formValid && (
-                <ValidationMessage message={this.message} />
+                <ValidationMessage message={"Contact Name Required"} />
               )}
               <label>Position</label>
               <input
@@ -193,7 +190,7 @@ export default class AddNewWarehouse extends Component {
                 name="position"
               />
               {!this.state.position && !this.state.formValid && (
-                <ValidationMessage message={this.message} />
+                <ValidationMessage message={"Position Required"} />
               )}
               <label>Phone Number</label>
               <input
@@ -207,7 +204,7 @@ export default class AddNewWarehouse extends Component {
                 name="phoneNumber"
               />
               {!this.state.phoneNumber && !this.state.formValid && (
-                <ValidationMessage message={this.message} />
+                <ValidationMessage message={"Phone Number Required"} />
               )}
               <label>Email</label>
               <input
@@ -221,19 +218,15 @@ export default class AddNewWarehouse extends Component {
                 name="email"
               />
               {!this.state.email && !this.state.formValid && (
-                <ValidationMessage message={this.message} />
+                <ValidationMessage message={"Email Required"} />
               )}
             </div>
           </div>
 
           <div className="add-warehouse__buttons">
-            <button
-              type="reset"
-              className="add-warehouse__cancel"
-              onClick={this.resetState}
-            >
-              Cancel
-            </button>
+            <Link className="add-warehouse__cancel-link" to="/warehouses">
+              <button className="add-warehouse__cancel">Cancel</button>
+            </Link>
             <button type="submit" className="add-warehouse__add">
               +Add Warehouse
             </button>

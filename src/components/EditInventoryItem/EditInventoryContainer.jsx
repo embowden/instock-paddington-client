@@ -72,9 +72,7 @@ export default class EditInventoryItem extends Component {
           }
         )
         .then((response) => {
-          event.target.reset();
-          this.getInventoryItem();
-          console.log(response);
+          this.props.history.push("/inventory");
         });
     } else {
       console.log("else statment");
@@ -182,7 +180,7 @@ export default class EditInventoryItem extends Component {
                 name="category"
                 value={`${this.state.category}`}
               >
-                <option value="Gealth">Health</option>
+                <option value="Health">Health</option>
                 <option value="Accessories">Accessories</option>
                 <option value="Apparel">Apparel</option>
                 <option value="Gear">Gear</option>
@@ -278,9 +276,9 @@ export default class EditInventoryItem extends Component {
           </div>
 
           <div className="edit-inventory__buttons">
-            <button type="reset" className="edit-inventory__cancel">
-              Cancel
-            </button>
+            <Link className="edit-inventory__cancel-link" to="/inventory">
+              <button className="edit-inventory__cancel">Cancel</button>
+            </Link>
             <button type="submit" className="edit-inventory__add">
               Save
             </button>

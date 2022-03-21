@@ -7,14 +7,14 @@ import ValidationMessage from "../../components/ValidationMessage/ValidationMess
 
 export default class EditWarehouse extends Component {
   state = {
-    warehouseName: null,
-    streetAdress: null,
-    city: null,
-    country: null,
-    contactName: null,
-    position: null,
-    phoneNumber: null,
-    email: null,
+    warehouseName: "",
+    streetAddress: "",
+    city: "",
+    country: "",
+    contactName: "",
+    position: "",
+    phoneNumber: "",
+    email: "",
     formValid: true,
   };
 
@@ -27,7 +27,7 @@ export default class EditWarehouse extends Component {
         console.log(response);
         this.setState({
           warehouseName: response.data.name,
-          streetAdress: response.data.address,
+          streetAddress: response.data.address,
           city: response.data.city,
           country: response.data.country,
           contactName: response.data.contact.name,
@@ -45,10 +45,6 @@ export default class EditWarehouse extends Component {
     this.getWarehouseData();
   }
 
-  handleCancel = () => {
-    this.getWarehouseData();
-  };
-
   handleChange = (event) => {
     this.setState({
       [event.target.name]: event.target.value,
@@ -57,14 +53,14 @@ export default class EditWarehouse extends Component {
 
   isFormValid = () => {
     if (
-      !this.state.warehouseName ||
-      !this.state.streetAdress ||
-      !this.state.city ||
-      !this.state.country ||
-      !this.state.contactName ||
-      !this.state.position ||
-      !this.state.phoneNumber ||
-      !this.state.email
+      this.state.warehouseName === "" ||
+      this.state.streetAddress === "" ||
+      this.state.city === "" ||
+      this.state.country === "" ||
+      this.state.contactName === "" ||
+      this.state.position === "" ||
+      this.state.phoneNumber === "" ||
+      this.state.email === ""
     ) {
       return false;
     }
@@ -80,7 +76,7 @@ export default class EditWarehouse extends Component {
           `http://localhost:8080/warehouses/${this.props.match.params.warehouseId}`,
           {
             name: event.target.warehouseName.value,
-            address: event.target.streetAdress.value,
+            address: event.target.streetAddress.value,
             city: event.target.city.value,
             country: event.target.country.value,
             contact: {
@@ -91,10 +87,8 @@ export default class EditWarehouse extends Component {
             },
           }
         )
-        .then(function (response) {
-          event.target.reset();
-          alert(`Warehouse eddited successfully`);
-          console.log(response);
+        .then((response) => {
+          this.props.history.push("/warehouses");
         });
     } else {
       this.setState({
@@ -105,9 +99,9 @@ export default class EditWarehouse extends Component {
 
   render() {
     return (
-      <div className="add-warehouse">
-        <h1 className="add-warehouse__header">
-          <Link to={`/warehouses`} className="add-warehouse__back">
+      <div className="edit-warehouse">
+        <h1 className="edit-warehouse__header">
+          <Link to={`/warehouses`} className="edit-warehouse__back">
             <img src={arrow} alt="" />
           </Link>
           Edit Warehouse
@@ -115,11 +109,11 @@ export default class EditWarehouse extends Component {
         <form
           name="addWarehouse"
           onSubmit={this.handleSubmit}
-          className="add-warehouse__form"
+          className="edit-warehouse__form"
         >
-          <div className="add-warehouse__form-elements">
-            <div className="add-warehouse__warehouse-info">
-              <h2 className="add-warehouse__section-header">
+          <div className="edit-warehouse__form-elements">
+            <div className="edit-warehouse__warehouse-info">
+              <h2 className="edit-warehouse__section-header">
                 Warehouse Details
               </h2>
               <label>Warehouse Name</label>
@@ -127,129 +121,127 @@ export default class EditWarehouse extends Component {
                 onChange={this.handleChange}
                 className={`${
                   !this.state.warehouseName && !this.state.formValid
-                    ? "add-warehouse__input--missing"
-                    : "add-warehouse__input"
+                    ? "edit-warehouse__input--missing"
+                    : "edit-warehouse__input"
                 }`}
                 value={`${this.state.warehouseName}`}
                 name="warehouseName"
               />
-              {!this.state.warehouseName && !this.state.formValid && (
-                <ValidationMessage />
+              {this.state.warehouseName === "" && !this.state.formValid && (
+                <ValidationMessage message={"Warehouse name Required"} />
               )}
-              <label>Street Adress</label>
+              <label>Street Address</label>
               <input
                 onChange={this.handleChange}
                 className={`${
                   !this.state.streetAdress && !this.state.formValid
-                    ? "add-warehouse__input--missing"
-                    : "add-warehouse__input"
+                    ? "edit-warehouse__input--missing"
+                    : "edit-warehouse__input"
                 }`}
-                value={`${this.state.streetAdress}`}
-                name="streetAdress"
+                value={`${this.state.streetAddress}`}
+                name="streetAddress"
               />
-              {!this.state.warehouseName && !this.state.formValid && (
-                <ValidationMessage />
+              {this.state.streetAddress === "" && !this.state.formValid && (
+                <ValidationMessage message={"Street Address Required"} />
               )}
               <label>City</label>
               <input
                 onChange={this.handleChange}
                 className={`${
                   !this.state.city && !this.state.formValid
-                    ? "add-warehouse__input--missing"
-                    : "add-warehouse__input"
+                    ? "edit-warehouse__input--missing"
+                    : "edit-warehouse__input"
                 }`}
                 value={`${this.state.city}`}
                 name="city"
               />
-              {!this.state.warehouseName && !this.state.formValid && (
-                <ValidationMessage />
+              {this.state.city === "" && !this.state.formValid && (
+                <ValidationMessage message={"City Required"} />
               )}
               <label>Country</label>
               <input
                 onChange={this.handleChange}
                 className={`${
                   !this.state.country && !this.state.formValid
-                    ? "add-warehouse__input--missing"
-                    : "add-warehouse__input"
+                    ? "edit-warehouse__input--missing"
+                    : "edit-warehouse__input"
                 }`}
                 value={`${this.state.country}`}
                 name="country"
               />
-              {!this.state.warehouseName && !this.state.formValid && (
-                <ValidationMessage />
+              {this.state.country === "" && !this.state.formValid && (
+                <ValidationMessage message={"Country Required"} />
               )}
             </div>
 
-            <div className="add-warehouse__contact-info">
-              <h2 className="add-warehouse__section-header">Contact Details</h2>
+            <div className="edit-warehouse__contact-info">
+              <h2 className="edit-warehouse__section-header">
+                Contact Details
+              </h2>
               <label>Contact Name </label>
               <input
                 onChange={this.handleChange}
                 className={`${
                   !this.state.contactName && !this.state.formValid
-                    ? "add-warehouse__input--missing"
-                    : "add-warehouse__input"
+                    ? "edit-warehouse__input--missing"
+                    : "edit-warehouse__input"
                 }`}
                 value={`${this.state.contactName}`}
                 name="contactName"
               />
-              {!this.state.warehouseName && !this.state.formValid && (
-                <ValidationMessage />
+              {this.state.contactName === "" && !this.state.formValid && (
+                <ValidationMessage message={"Contact Name Required"} />
               )}
               <label>Position</label>
               <input
                 onChange={this.handleChange}
                 className={`${
                   !this.state.position && !this.state.formValid
-                    ? "add-warehouse__input--missing"
-                    : "add-warehouse__input"
+                    ? "edit-warehouse__input--missing"
+                    : "edit-warehouse__input"
                 }`}
-                value={`${this.state.position} `}
+                value={`${this.state.position}`}
                 name="position"
               />
-              {!this.state.warehouseName && !this.state.formValid && (
-                <ValidationMessage />
+              {this.state.position === "" && !this.state.formValid && (
+                <ValidationMessage message={"Position Required"} />
               )}
               <label>Phone Number</label>
               <input
                 onChange={this.handleChange}
                 className={`${
                   !this.state.phoneNumber && !this.state.formValid
-                    ? "add-warehouse__input--missing"
-                    : "add-warehouse__input"
+                    ? "edit-warehouse__input--missing"
+                    : "edit-warehouse__input"
                 }`}
                 value={`${this.state.phoneNumber}`}
                 name="phoneNumber"
               />
-              {!this.state.warehouseName && !this.state.formValid && (
-                <ValidationMessage />
+              {this.state.phoneNumber === "" && !this.state.formValid && (
+                <ValidationMessage message={"Phone Number Required"} />
               )}
               <label>Email</label>
               <input
                 onChange={this.handleChange}
                 className={`${
                   !this.state.email && !this.state.formValid
-                    ? "add-warehouse__input--missing"
-                    : "add-warehouse__input"
+                    ? "edit-warehouse__input--missing"
+                    : "edit-warehouse__input"
                 }`}
                 value={`${this.state.email}`}
                 name="email"
               />
-              {!this.state.warehouseName && !this.state.formValid && (
-                <ValidationMessage />
+              {this.state.email === "" && !this.state.formValid && (
+                <ValidationMessage message={"Email Required"} />
               )}
             </div>
           </div>
 
-          <div className="add-warehouse__buttons">
-            <button
-              type="reset"
-              className="add-warehouse__cancel"
-              onClick={this.handleCancel}
-            >
-              Cancel
-            </button>
-            <button type="submit" className="add-warehouse__add">
+          <div className="edit-warehouse__buttons">
+            <Link className="add-warehouse__cancel-link" to="/warehouses">
+              <button className="add-warehouse__cancel">Cancel</button>
+            </Link>
+            <button type="submit" className="edit-warehouse__add">
               Save
             </button>
           </div>
